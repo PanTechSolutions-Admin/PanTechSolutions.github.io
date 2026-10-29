@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VHire Tech | IT Recruiting & AI Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#0057B8;--blue2:#0046a0;--sky:#E8F1FB;--teal:#00A3A1;
+  --white:#ffffff;--light:#F5F7FA;--border:#DDE3EC;
+  --text:#1A1F2E;--muted:#5A6378;--T:all .22s ease;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px;}
+
+/* SVG icons inline */
+.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--blue);padding:8px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.topbar-left{display:flex;align-items:center;gap:20px;}
+.topbar-left a{color:rgba(255,255,255,.85);font-size:.78rem;display:flex;align-items:center;gap:6px;transition:var(--T);}
+.topbar-left a:hover{color:#fff;}
+.topbar-right{display:flex;align-items:center;gap:14px;}
+.topbar-right a{color:rgba(255,255,255,.75);font-size:.78rem;transition:var(--T);display:flex;align-items:center;gap:5px;}
+.topbar-right a:hover{color:#fff;}
+.topbar-tag{background:var(--teal);color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:2px;letter-spacing:.04em;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:2px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{font-size:1.5rem;font-weight:800;color:var(--blue);display:flex;align-items:center;gap:10px;letter-spacing:-.02em;}
+.logo-icon{width:36px;height:36px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:800;flex-shrink:0;}
+.logo-text span{color:var(--teal);}
+.nav-links{display:flex;align-items:center;list-style:none;}
+.nav-links>li>a{display:flex;align-items:center;gap:5px;color:var(--text);font-size:.875rem;font-weight:600;padding:0 15px;height:68px;border-bottom:3px solid transparent;transition:var(--T);}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--blue);border-bottom-color:var(--blue);}
+.has-drop{position:relative;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);box-shadow:0 8px 24px rgba(0,0,0,.1);min-width:230px;padding:8px 0;z-index:300;}
+.has-drop:hover .dropdown{display:block;}
+.dropdown a{display:flex;align-items:center;gap:10px;padding:11px 18px;font-size:.84rem;color:var(--text);font-weight:500;transition:var(--T);}
+.dropdown a:hover{background:var(--sky);color:var(--blue);}
+.dropdown a .dico{width:18px;text-align:center;color:var(--blue);}
+.nav-actions{display:flex;align-items:center;gap:10px;}
+.btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;padding:9px 20px;border-radius:3px;font-size:.85rem;font-weight:700;transition:var(--T);display:inline-block;}
+.btn-ghost:hover{background:var(--blue);color:#fff;}
+.btn-solid{background:var(--blue);color:#fff;border:2px solid var(--blue);padding:9px 20px;border-radius:3px;font-size:.85rem;font-weight:700;transition:var(--T);display:inline-block;}
+.btn-solid:hover{background:var(--blue2);}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--blue) 0%,#003d8a 100%);padding:80px 5% 0;overflow:hidden;position:relative;}
+.hero::before{content:'';position:absolute;right:0;top:0;bottom:0;width:45%;background:rgba(255,255,255,.04);clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:48px;align-items:flex-end;}
+.hero-content{padding-bottom:64px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:2px;padding:5px 14px;font-size:.76rem;color:rgba(255,255,255,.9);font-weight:600;margin-bottom:24px;letter-spacing:.04em;}
+.hero h1{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:22px;}
+.hero h1 span{color:#7ED4FF;}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.78);line-height:1.78;max-width:500px;margin-bottom:12px;}
+.hero-motto{display:inline-flex;align-items:center;gap:8px;background:rgba(0,163,161,.2);border:1px solid rgba(0,163,161,.4);border-radius:2px;padding:6px 14px;font-size:.8rem;color:#a8f0ef;font-weight:600;margin-bottom:32px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-btn-white{background:#fff;color:var(--blue);padding:14px 28px;border-radius:3px;font-size:.9rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:var(--T);}
+.hero-btn-white:hover{background:#e8f1fb;}
+.hero-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:14px 28px;border-radius:3px;font-size:.9rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:var(--T);}
+.hero-btn-outline:hover{border-color:#fff;}
+.hero-stats{display:flex;gap:32px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.15);}
+.hstat-num{font-size:2rem;font-weight:800;color:#fff;line-height:1;}
+.hstat-lbl{font-size:.73rem;color:rgba(255,255,255,.6);margin-top:4px;}
+.hero-panel{background:#fff;border-radius:6px 6px 0 0;padding:26px;align-self:flex-end;box-shadow:0 -4px 40px rgba(0,0,0,.15);}
+.hpanel-title{font-size:.76rem;font-weight:700;color:var(--muted);letter-spacing:.07em;margin-bottom:16px;text-transform:uppercase;}
+.job-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+.job-item:last-of-type{border-bottom:none;}
+.job-ico{width:38px;height:38px;background:var(--sky);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.job-title{font-size:.84rem;font-weight:700;color:var(--text);}
+.job-meta{font-size:.73rem;color:var(--muted);margin-top:2px;}
+.job-badge{margin-left:auto;font-size:.67rem;font-weight:700;padding:3px 9px;border-radius:2px;white-space:nowrap;}
+.badge-open{background:#E6F7F7;color:#007A78;}
+.badge-hot{background:#FFF0E6;color:#C45E00;}
+
+/* ── PILOT BANNER ── */
+.pilot-banner{background:linear-gradient(90deg,#00857e 0%,var(--teal) 100%);padding:22px 5%;}
+.pilot-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.pilot-left{display:flex;align-items:center;gap:16px;}
+.pilot-tag{background:rgba(255,255,255,.2);color:#fff;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:2px;letter-spacing:.05em;white-space:nowrap;}
+.pilot-text{color:#fff;font-size:.95rem;font-weight:600;}
+.pilot-text span{color:#c8fff8;}
+.pilot-sub{color:rgba(255,255,255,.75);font-size:.8rem;margin-top:2px;}
+.pilot-btn{background:#fff;color:var(--teal);padding:11px 24px;border-radius:3px;font-size:.88rem;font-weight:700;transition:var(--T);white-space:nowrap;}
+.pilot-btn:hover{background:#e0f9f8;}
+
+/* ── SERVICE TABS ── */
+.service-tabs{background:#fff;border-bottom:1px solid var(--border);padding:0 5%;}
+.stabs-inner{max-width:1200px;margin:0 auto;display:flex;overflow-x:auto;}
+.stab{padding:17px 20px;font-size:.86rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;transition:var(--T);white-space:nowrap;display:flex;align-items:center;gap:8px;}
+.stab:hover{color:var(--blue);}
+.stab.on{color:var(--blue);border-bottom-color:var(--blue);}
+.stab .stab-ico{width:18px;height:18px;display:flex;align-items:center;justify-content:center;}
+
+/* ── SECTIONS ── */
+section{padding:80px 5%;}
+.sec-inner{max-width:1200px;margin:0 auto;}
+.sec-eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--blue);margin-bottom:10px;text-transform:uppercase;}
+h2{font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:800;color:var(--text);line-height:1.15;letter-spacing:-.02em;margin-bottom:14px;}
+h2 span{color:var(--blue);}
+.sec-sub{font-size:.96rem;color:var(--muted);max-width:580px;line-height:1.75;}
+.sec-hd{margin-bottom:44px;}
+.sec-hd-flex{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:44px;flex-wrap:wrap;}
+.link-more{font-size:.84rem;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:5px;white-space:nowrap;}
+.link-more:hover{color:var(--blue2);}
+
+/* ── AI / IT CONSULTING ── */
+.it-consulting{background:var(--light);}
+.ai-highlight{
+  background:linear-gradient(135deg,#0057B8 0%,#003d8a 100%);
+  border-radius:6px;padding:28px 28px 24px;margin-bottom:24px;
+  display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+}
+.ai-highlight h3{font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.ai-highlight p{font-size:.85rem;color:rgba(255,255,255,.78);line-height:1.65;max-width:600px;}
+.ai-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.ai-badge{background:rgba(255,255,255,.15);color:#c8e8ff;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:2px;border:1px solid rgba(255,255,255,.2);}
+.ai-highlight-right{text-align:center;}
+.ai-price{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;}
+.ai-price-lbl{font-size:.74rem;color:rgba(255,255,255,.6);margin-top:2px;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:26px;transition:var(--T);}
+.svc-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(0,87,184,.08);}
+.svc-card.ai-card{border-color:rgba(0,87,184,.3);background:linear-gradient(135deg,#f0f6ff 0%,#fff 60%);}
+.svc-card-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.svc-ico{width:46px;height:46px;background:var(--sky);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.svc-ico svg{width:22px;height:22px;}
+.svc-ico.ai-ico{background:linear-gradient(135deg,#0057B8,#003d8a);}
+.svc-ico.ai-ico svg{color:#fff;}
+.svc-card h3{font-size:.97rem;font-weight:700;color:var(--text);}
+.svc-card p{font-size:.83rem;color:var(--muted);line-height:1.7;}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;}
+.svc-tag{background:var(--sky);color:var(--blue);font-size:.69rem;font-weight:600;padding:3px 9px;border-radius:2px;}
+.svc-tag.ai-tag{background:#e8f1ff;color:#003d8a;}
+.new-badge{background:var(--blue);color:#fff;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:2px;margin-left:8px;vertical-align:middle;}
+
+/* ── RECRUITING / HIRING ── */
+.recruiting{background:#fff;}
+.recruit-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.motto-box{background:linear-gradient(135deg,var(--teal) 0%,#007a78 100%);border-radius:4px;padding:20px 22px;margin-bottom:28px;}
+.motto-box p{font-size:.9rem;font-weight:700;color:#fff;line-height:1.5;}
+.motto-box span{color:#c8fff8;}
+.rlist{list-style:none;}
+.rlist-item{display:flex;align-items:flex-start;gap:14px;padding:17px 0;border-bottom:1px solid var(--border);}
+.rlist-item:last-child{border-bottom:none;}
+.rlist-num{width:30px;height:30px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
+.rlist-body h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.rlist-body p{font-size:.81rem;color:var(--muted);line-height:1.65;}
+.human-badge{display:inline-flex;align-items:center;gap:6px;background:#fff3cd;border:1px solid #f0c040;border-radius:2px;padding:5px 12px;font-size:.76rem;font-weight:700;color:#7a5c00;margin-top:14px;}
+.rcat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.rcat{background:var(--light);border:1px solid var(--border);border-radius:4px;padding:18px 16px;transition:var(--T);}
+.rcat:hover{border-color:var(--blue);background:var(--sky);}
+.rcat-ico{width:36px;height:36px;background:var(--sky);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.rcat-ico svg{width:18px;height:18px;color:var(--blue);}
+.rcat h4{font-size:.86rem;font-weight:700;color:var(--text);margin-bottom:5px;}
+.rcat p{font-size:.76rem;color:var(--muted);line-height:1.6;}
+
+/* ── PILOT SECTION ── */
+.pilot-section{background:var(--light);}
+.pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.pilot-features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px;}
+.pilot-feature{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:#fff;border:1px solid var(--border);border-radius:4px;}
+.pilot-feature-ico{width:36px;height:36px;background:var(--sky);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pilot-feature-ico svg{width:16px;height:16px;color:var(--blue);}
+.pilot-feature-text h4{font-size:.86rem;font-weight:700;color:var(--text);margin-bottom:3px;}
+.pilot-feature-text p{font-size:.78rem;color:var(--muted);line-height:1.55;}
+.pilot-card{background:linear-gradient(135deg,#0057B8 0%,#003d8a 100%);border-radius:8px;padding:36px;text-align:center;color:#fff;}
+.pilot-card-price{font-size:3.2rem;font-weight:800;line-height:1;margin-bottom:4px;}
+.pilot-card-price span{font-size:1.4rem;vertical-align:top;margin-top:8px;display:inline-block;}
+.pilot-card-lbl{font-size:.8rem;color:rgba(255,255,255,.65);margin-bottom:24px;}
+.pilot-card-features{list-style:none;display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:28px;}
+.pilot-card-features li{display:flex;align-items:center;gap:10px;font-size:.84rem;color:rgba(255,255,255,.85);}
+.pilot-card-features li svg{color:#7ED4FF;flex-shrink:0;}
+.pilot-card-btn{background:#fff;color:var(--blue);padding:13px 28px;border-radius:3px;font-size:.92rem;font-weight:700;display:block;transition:var(--T);}
+.pilot-card-btn:hover{background:#e8f1fb;}
+.pilot-card-note{font-size:.74rem;color:rgba(255,255,255,.5);margin-top:14px;}
+
+/* ── STATS BAND ── */
+.stats-band{background:var(--blue);padding:52px 5%;}
+.stats-band .sec-inner{display:grid;grid-template-columns:repeat(4,1fr);}
+.sb-item{text-align:center;padding:0 16px;}
+.sb-item+.sb-item{border-left:1px solid rgba(255,255,255,.15);}
+.sb-num{font-size:2.5rem;font-weight:800;color:#fff;line-height:1;}
+.sb-lbl{font-size:.77rem;color:rgba(255,255,255,.65);margin-top:8px;}
+
+/* ── ABOUT ── */
+.about{background:#fff;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.about-left p{font-size:.93rem;color:var(--muted);line-height:1.8;margin-bottom:16px;}
+.about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.about-pill{background:var(--light);border:1px solid var(--border);border-radius:2px;padding:6px 13px;font-size:.76rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:6px;}
+.about-pill svg{color:var(--blue);width:13px;height:13px;}
+.skill-list{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.skill-item label{font-size:.82rem;font-weight:600;color:var(--text);display:flex;justify-content:space-between;margin-bottom:7px;}
+.skill-item label span{color:var(--blue);}
+.skill-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
+.skill-fill{height:100%;background:var(--blue);border-radius:3px;}
+
+/* ── PROCESS ── */
+.process{background:var(--light);}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin-top:52px;}
+.process-steps::before{content:'';position:absolute;top:34px;left:12%;right:12%;height:2px;background:var(--border);z-index:0;}
+.pstep{text-align:center;padding:0 14px;position:relative;z-index:1;}
+.pstep-circle{width:68px;height:68px;background:#fff;border:2px solid var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:2;}
+.pstep-circle svg{width:24px;height:24px;color:var(--blue);}
+.pstep.active .pstep-circle{background:var(--blue);}
+.pstep.active .pstep-circle svg{color:#fff;}
+.pstep h4{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:8px;}
+.pstep p{font-size:.79rem;color:var(--muted);line-height:1.65;}
+
+/* ── WHY US ── */
+.whyus{background:#fff;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.why-card{border-left:4px solid var(--blue);background:var(--light);padding:22px 20px;border-radius:0 4px 4px 0;}
+.why-card-ico{width:40px;height:40px;background:var(--sky);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.why-card-ico svg{width:20px;height:20px;color:var(--blue);}
+.why-card h4{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:8px;}
+.why-card p{font-size:.81rem;color:var(--muted);line-height:1.65;}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--light);}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.tcard{background:#fff;border:1px solid var(--border);border-radius:4px;padding:26px;}
+.tcard-stars{color:#F59E0B;font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+.tcard blockquote{font-size:.86rem;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:18px;}
+.tcard-person{display:flex;align-items:center;gap:12px;}
+.tcard-avatar{width:40px;height:40px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;color:#fff;flex-shrink:0;}
+.tcard-name{font-size:.83rem;font-weight:700;color:var(--text);}
+.tcard-role{font-size:.73rem;color:var(--muted);}
+
+/* ── CONTACT ── */
+.contact{background:#fff;}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.contact-left p{font-size:.93rem;color:var(--muted);line-height:1.8;margin-bottom:24px;}
+.cinfo{display:flex;flex-direction:column;gap:14px;}
+.cinfo-row{display:flex;align-items:flex-start;gap:13px;}
+.cinfo-ico{width:40px;height:40px;background:var(--sky);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.cinfo-ico svg{width:18px;height:18px;color:var(--blue);}
+.cinfo-text strong{display:block;font-size:.82rem;font-weight:700;color:var(--text);}
+.cinfo-text span{font-size:.78rem;color:var(--muted);}
+.contact-form{background:var(--light);border:1px solid var(--border);border-radius:4px;padding:30px;}
+.form-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:20px;}
+form{display:flex;flex-direction:column;gap:13px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.flabel{font-size:.77rem;font-weight:600;color:var(--text);display:block;margin-bottom:4px;}
+input,textarea,select{background:#fff;border:1px solid var(--border);border-radius:3px;padding:11px 14px;font-family:'Manrope',sans-serif;font-size:.86rem;color:var(--text);width:100%;outline:none;transition:var(--T);}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);}
+input::placeholder,textarea::placeholder{color:#aab0be;}
+textarea{min-height:100px;resize:vertical;}
+.form-btn{background:var(--blue);color:#fff;border:none;cursor:pointer;padding:13px 24px;border-radius:3px;font-size:.88rem;font-weight:700;font-family:'Manrope',sans-serif;transition:var(--T);display:inline-flex;align-items:center;gap:8px;}
+.form-btn:hover{background:var(--blue2);}
+.form-btn svg{width:16px;height:16px;}
+
+/* ── FOOTER ── */
+footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
+.footer-top{max-width:1200px;margin:0 auto 44px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:36px;}
+.footer-brand-logo{font-size:1.45rem;font-weight:800;color:#fff;display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-brand-logo .logo-icon{background:rgba(255,255,255,.12);}
+.footer-brand-logo span{color:var(--teal);}
+.footer-brand p{font-size:.8rem;line-height:1.7;max-width:270px;}
+.footer-socials{display:flex;gap:8px;margin-top:16px;}
+.footer-socials a{width:34px;height:34px;background:rgba(255,255,255,.07);border-radius:3px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:.78rem;transition:var(--T);}
+.footer-socials a:hover{background:var(--blue);color:#fff;}
+.footer-socials a svg{width:15px;height:15px;}
+.footer-col h5{font-size:.78rem;font-weight:700;color:#fff;margin-bottom:13px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col ul li a{font-size:.79rem;color:rgba(255,255,255,.5);transition:var(--T);}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:.74rem;}
+.footer-bottom a{color:rgba(255,255,255,.45);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;} .hero-panel{display:none;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .recruit-cols{grid-template-columns:1fr;}
+  .pilot-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;gap:30px;} .process-steps::before{display:none;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .tgrid{grid-template-columns:1fr 1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .ai-highlight{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  section{padding:52px 5%;}
+  .svc-grid{grid-template-columns:1fr;}
+  .rcat-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr;}
+  .stats-band .sec-inner{grid-template-columns:1fr 1fr;}
+  .sb-item+.sb-item{border-left:none;border-top:1px solid rgba(255,255,255,.15);padding-top:24px;}
+  .why-grid{grid-template-columns:1fr;}
+  .tgrid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .nav-links,.nav-actions{display:none;}
+  .hero-stats{flex-wrap:wrap;gap:18px;}
+  .frow{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="tel:+15139577488">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+      USA: +1 (740) 803-9800
+    </a>
+    <a href="tel:+919347583545">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+      India: +91 93475 83545
+    </a>
+    <a href="mailto:info@vhire.tech">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      info@vhire.tech
+    </a>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-tag">NOW HIRING</span>
+    <a href="#">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="#">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon">V</div>
+    <div class="logo-text">VHire<span>Tech</span></div>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="#it-consulting">AI & IT Consulting
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="dropdown">
+        <a href="#it-consulting"><span class="dico">🤖</span> AI Development</a>
+        <a href="#it-consulting"><span class="dico">🧠</span> AI Engineering</a>
+        <a href="#it-consulting"><span class="dico">📊</span> Data Science & Analytics</a>
+        <a href="#it-consulting"><span class="dico">☁️</span> Cloud Solutions</a>
+        <a href="#it-consulting"><span class="dico">💻</span> Web Development</a>
+        <a href="#it-consulting"><span class="dico">⚙️</span> DevOps & CI/CD</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="#recruiting">Tech Recruiting
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="dropdown">
+        <a href="#recruiting"><span class="dico">👨‍💻</span> Software Engineers</a>
+        <a href="#recruiting"><span class="dico">🧪</span> Data & AI Talent</a>
+        <a href="#recruiting"><span class="dico">☁️</span> Cloud & DevOps</a>
+        <a href="#recruiting"><span class="dico">👥</span> Staff Augmentation</a>
+        <a href="#recruiting"><span class="dico">🎯</span> Executive Search</a>
+      </div>
+    </li>
+    <li><a href="#pilot">Pilot — $249</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="btn-ghost" href="#pilot">Try Pilot — $249</a>
+    <a class="btn-solid" href="#contact">Get Hired</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🌐 USA + INDIA · IT RECRUITING & AI CONSULTING</div>
+      <h1>Get IT Professionals <span>Hired — Anytime,</span> Any Season</h1>
+      <p class="hero-sub">VHire Tech specializes in placing IT professionals year-round and delivering AI-powered consulting for growing companies. Serving clients across the USA and India.</p>
+      <div class="hero-motto">
+        🤝 100% Human Screened · No AI Auto-Apply · Every Application is Manual
+      </div>
+      <div class="hero-btns">
+        <a class="hero-btn-white" href="#pilot">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+          Start Pilot — $249
+        </a>
+        <a class="hero-btn-outline" href="#recruiting">Get Hired Now</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-num">150+</div><div class="hstat-lbl">IT Pros Placed</div></div>
+        <div class="hstat"><div class="hstat-num">365</div><div class="hstat-lbl">Days / Year Hiring</div></div>
+        <div class="hstat"><div class="hstat-num">USA+IN</div><div class="hstat-lbl">Dual Markets</div></div>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hpanel-title">🔥 Open Roles Right Now</div>
+      <div class="job-item">
+        <div class="job-ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+        </div>
+        <div><div class="job-title">AI Engineer</div><div class="job-meta">Remote · Full-time</div></div>
+        <span class="job-badge badge-hot">Urgent</span>
+      </div>
+      <div class="job-item">
+        <div class="job-ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div><div class="job-title">Data Scientist</div><div class="job-meta">Hybrid · Contract</div></div>
+        <span class="job-badge badge-hot">Urgent</span>
+      </div>
+      <div class="job-item">
+        <div class="job-ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div><div class="job-title">Full Stack Developer</div><div class="job-meta">Remote · Full-time</div></div>
+        <span class="job-badge badge-open">Open</span>
+      </div>
+      <div class="job-item">
+        <div class="job-ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div><div class="job-title">Cloud Architect</div><div class="job-meta">On-site · Contract</div></div>
+        <span class="job-badge badge-open">Open</span>
+      </div>
+      <div style="margin-top:14px;text-align:center;">
+        <a href="#recruiting" style="font-size:.81rem;font-weight:700;color:var(--blue);display:flex;align-items:center;justify-content:center;gap:5px;">View All Open Roles
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PILOT BANNER -->
+<div class="pilot-banner">
+  <div class="pilot-inner">
+    <div class="pilot-left">
+      <span class="pilot-tag">🚀 PILOT OFFER</span>
+      <div>
+        <div class="pilot-text">Start with our <span>$249 Pilot Program</span> — Resume Enhancement + Job Matching</div>
+        <div class="pilot-sub">Try our service risk-free. 100% human-reviewed, manually applied. No AI bots.</div>
+      </div>
+    </div>
+    <a class="pilot-btn" href="#pilot">See What's Included →</a>
+  </div>
+</div>
+
+<!-- SERVICE TABS -->
+<div class="service-tabs">
+  <div class="stabs-inner">
+    <div class="stab on"><span>🤖</span> AI Development</div>
+    <div class="stab"><span>🧠</span> AI Engineering</div>
+    <div class="stab"><span>📊</span> Data & Analytics</div>
+    <div class="stab"><span>☁️</span> Cloud Solutions</div>
+    <div class="stab"><span>⚙️</span> DevOps</div>
+    <div class="stab"><span>🎯</span> Tech Staffing</div>
+  </div>
+</div>
+
+<!-- IT & AI CONSULTING -->
+<section class="it-consulting" id="it-consulting">
+  <div class="sec-inner">
+    <div class="sec-hd-flex">
+      <div>
+        <div class="sec-eyebrow">AI & IT Consulting</div>
+        <h2>AI-First <span>Technology Solutions</span></h2>
+        <p class="sec-sub">We lead with AI — from building intelligent systems to engineering the data pipelines that power them. Every engagement starts with AI strategy.</p>
+      </div>
+      <a class="link-more" href="#contact">All Services →</a>
+    </div>
+
+    <!-- AI HIGHLIGHT BAR -->
+    <div class="ai-highlight">
+      <div>
+        <h3>🤖 AI is Our Core — Not an Add-On</h3>
+        <p>From LLM integration and AI agent development to ML pipelines and data engineering — VHire Tech is built for the AI era. We help companies build AI products, scale AI teams, and transform operations with intelligent automation.</p>
+        <div class="ai-badge-row">
+          <span class="ai-badge">LLM Development</span>
+          <span class="ai-badge">AI Agents</span>
+          <span class="ai-badge">ML Pipelines</span>
+          <span class="ai-badge">Computer Vision</span>
+          <span class="ai-badge">NLP Systems</span>
+          <span class="ai-badge">RAG Systems</span>
+          <span class="ai-badge">Generative AI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-grid">
+      <!-- AI CARDS -->
+      <div class="svc-card ai-card">
+        <div class="svc-card-top">
+          <div class="svc-ico ai-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 000 11.4M17.7 6.3a8 8 0 010 11.4M1 12h2m18 0h2M12 1v2m0 18v2"/></svg>
+          </div>
+          <div><h3>AI Development <span class="new-badge">HOT</span></h3></div>
+        </div>
+        <p>Build production AI systems — LLM-powered apps, AI agents, chatbots, recommendation engines, and intelligent automation workflows tailored to your business.</p>
+        <div class="svc-tags"><span class="svc-tag ai-tag">LLMs</span><span class="svc-tag ai-tag">OpenAI</span><span class="svc-tag ai-tag">Agents</span><span class="svc-tag ai-tag">RAG</span></div>
+      </div>
+
+      <div class="svc-card ai-card">
+        <div class="svc-card-top">
+          <div class="svc-ico ai-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-4.96-.46 2.5 2.5 0 01-1.07-4.8A2.5 2.5 0 017 4.5 2.5 2.5 0 019.5 2z"/><path d="M14.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 004.96-.46 2.5 2.5 0 001.07-4.8A2.5 2.5 0 0117 4.5a2.5 2.5 0 00-2.5-2.5z"/></svg>
+          </div>
+          <div><h3>AI Engineering <span class="new-badge">HOT</span></h3></div>
+        </div>
+        <p>End-to-end ML engineering: model training, fine-tuning, deployment pipelines, MLOps infrastructure, and scalable inference serving for AI products at scale.</p>
+        <div class="svc-tags"><span class="svc-tag ai-tag">PyTorch</span><span class="svc-tag ai-tag">MLflow</span><span class="svc-tag ai-tag">Kubeflow</span><span class="svc-tag ai-tag">SageMaker</span></div>
+      </div>
+
+      <div class="svc-card ai-card">
+        <div class="svc-card-top">
+          <div class="svc-ico ai-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div><h3>Data Science & Analytics <span class="new-badge">KEY</span></h3></div>
+        </div>
+        <p>Statistical modeling, predictive analytics, and BI dashboards that transform raw data into business decisions. Spark, Databricks, Power BI, and Snowflake expertise.</p>
+        <div class="svc-tags"><span class="svc-tag ai-tag">Python</span><span class="svc-tag ai-tag">Spark</span><span class="svc-tag ai-tag">Databricks</span><span class="svc-tag ai-tag">Power BI</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-top">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><path d="M17.5 19H9a7 7 0 117-7"/><polyline points="21 3 9 3 15 9"/><polyline points="15 3 21 9"/></svg>
+          </div>
+          <h3>Cloud Solutions</h3>
+        </div>
+        <p>Architect and migrate to AWS, Azure, or GCP. Scalable, secure cloud environments built for AI workloads and enterprise-grade performance.</p>
+        <div class="svc-tags"><span class="svc-tag">AWS</span><span class="svc-tag">Azure</span><span class="svc-tag">GCP</span><span class="svc-tag">Terraform</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-top">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Web & Mobile Development</h3>
+        </div>
+        <p>Custom applications from customer portals to enterprise tools. React, Node.js, and React Native with clean architecture and scalable backends.</p>
+        <div class="svc-tags"><span class="svc-tag">React</span><span class="svc-tag">Node.js</span><span class="svc-tag">React Native</span></div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card-top">
+          <div class="svc-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>DevOps & Platform Engineering</h3>
+        </div>
+        <p>CI/CD pipelines, Kubernetes deployments, and IaC that keep teams shipping fast. Purpose-built for AI/ML delivery workflows.</p>
+        <div class="svc-tags"><span class="svc-tag">Kubernetes</span><span class="svc-tag">Docker</span><span class="svc-tag">GitHub Actions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECRUITING -->
+<section class="recruiting" id="recruiting">
+  <div class="sec-inner">
+    <div class="recruit-cols">
+      <div class="recruit-left">
+        <div class="sec-eyebrow">Tech Recruiting</div>
+        <h2>We Get IT Professionals <span>Hired — Every Month of the Year</span></h2>
+        <div class="motto-box">
+          <p>🎯 Our Motto: <span>"No IT professional should go unhired for lack of opportunity."</span><br/>We are always recruiting — there is no off-season at VHire Tech.</p>
+        </div>
+        <div class="human-badge">
+          ✋ 100% Human-Reviewed &nbsp;·&nbsp; No AI Auto-Apply &nbsp;·&nbsp; Every Application is Manual
+        </div>
+        <ul class="rlist" style="margin-top:20px;">
+          <li class="rlist-item">
+            <div class="rlist-num">01</div>
+            <div class="rlist-body"><h4>Year-Round Placement</h4><p>We recruit 12 months a year. Whether it's January or August, we are actively matching IT professionals to open roles at top companies.</p></div>
+          </li>
+          <li class="rlist-item">
+            <div class="rlist-num">02</div>
+            <div class="rlist-body"><h4>Human-Screened, Manually Applied</h4><p>We never use AI bots to submit applications. Every resume is reviewed by a human. Every application is submitted by a real recruiter who knows your story.</p></div>
+          </li>
+          <li class="rlist-item">
+            <div class="rlist-num">03</div>
+            <div class="rlist-body"><h4>USA + India Coverage</h4><p>Hiring across the US and India. We understand both markets, visa requirements, and the nuances of cross-border IT placement.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="recruit-right">
+        <div class="rcat-grid">
+          <div class="rcat">
+            <div class="rcat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 000 11.4M17.7 6.3a8 8 0 010 11.4"/></svg>
+            </div>
+            <h4>AI / ML Engineers</h4><p>LLM, NLP, ML engineers placed at AI-first companies and enterprises building AI products.</p>
+          </div>
+          <div class="rcat">
+            <div class="rcat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4>Software Engineers</h4><p>Full-stack, front-end, back-end. Mid to senior level across all major tech stacks.</p>
+          </div>
+          <div class="rcat">
+            <div class="rcat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h4>Data Professionals</h4><p>Data scientists, data engineers, analysts, and BI developers with production experience.</p>
+          </div>
+          <div class="rcat">
+            <div class="rcat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 117-7"/></svg>
+            </div>
+            <h4>Cloud & DevOps</h4><p>Cloud architects, SREs, DevOps leads — AWS, Azure, GCP certified professionals.</p>
+          </div>
+          <div class="rcat">
+            <div class="rcat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            </div>
+            <h4>Staff Augmentation</h4><p>Vetted contractors who integrate into your team from week one, USA and India.</p>
+          </div>
+          <div class="rcat">
+            <div class="rcat-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h4>Executive Search</h4><p>CTOs, VPs of Engineering, technical directors for scaling companies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT PROGRAM -->
+<section class="pilot-section" id="pilot">
+  <div class="sec-inner">
+    <div class="pilot-grid">
+      <div>
+        <div class="sec-eyebrow">Pilot Program</div>
+        <h2>Start with <span>$249 — See Results First</span></h2>
+        <p class="sec-sub">Before committing to a full package, try our pilot. Get your resume professionally enhanced and see how we match you to real jobs — all done by humans, not bots.</p>
+        <ul class="pilot-features">
+          <li class="pilot-feature">
+            <div class="pilot-feature-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="pilot-feature-text"><h4>Resume Enhancement</h4><p>Our team rewrites and optimizes your resume for ATS systems and recruiter eyeballs — no templates, custom to your experience.</p></div>
+          </li>
+          <li class="pilot-feature">
+            <div class="pilot-feature-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="pilot-feature-text"><h4>Curated Job Matching</h4><p>We identify and match open roles that actually fit your background — no spray-and-pray. Every match is reviewed by a human recruiter.</p></div>
+          </li>
+          <li class="pilot-feature">
+            <div class="pilot-feature-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="pilot-feature-text"><h4>Manual Applications</h4><p>Our recruiters personally submit your applications. We never use AI bots or automated systems. Every job applied is tracked and reported to you.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="pilot-card">
+          <div style="font-size:1.8rem;margin-bottom:10px;">🚀</div>
+          <div class="pilot-card-price"><span>$</span>249</div>
+          <div class="pilot-card-lbl">One-Time Pilot Fee · No Hidden Costs</div>
+          <ul class="pilot-card-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Professional Resume Rewrite
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              ATS Optimization & Keyword Alignment
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Curated Job Matching (10–15 roles)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Human-Reviewed Applications Only
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Status Updates + Feedback Loop
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              USA & India Markets Covered
+            </li>
+          </ul>
+          <a class="pilot-card-btn" href="#contact">Get Started — $249</a>
+          <div class="pilot-card-note">✋ No AI auto-apply. Everything is done by real humans.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="sec-inner">
+    <div class="sb-item"><div class="sb-num">150+</div><div class="sb-lbl">IT Pros Placed</div></div>
+    <div class="sb-item"><div class="sb-num">365</div><div class="sb-lbl">Days/Year Recruiting</div></div>
+    <div class="sb-item"><div class="sb-num">2</div><div class="sb-lbl">Markets: USA + India</div></div>
+    <div class="sb-item"><div class="sb-num">100%</div><div class="sb-lbl">Human-Reviewed</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="sec-eyebrow">About VHire Tech</div>
+        <h2>Built to Keep IT <span>Professionals Working</span></h2>
+        <p>VHire Tech was founded on one belief: IT professionals should be able to find great opportunities at any time of the year — not just during peak hiring seasons. We operate year-round, across the USA and India, with a focus on AI, data, cloud, and software engineering roles.</p>
+        <p>Every resume we touch is reviewed by a human. Every application we submit is done manually by one of our recruiters. We believe the personal touch makes the difference between a job applied and a job landed.</p>
+        <p>On the consulting side, we lead with AI — helping companies build AI products, engineer ML systems, and modernize their tech stack for the intelligence era.</p>
+        <div class="about-pills">
+          <span class="about-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            USA + India
+          </span>
+          <span class="about-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+            Human-Reviewed
+          </span>
+          <span class="about-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4"/></svg>
+            AI-First
+          </span>
+          <span class="about-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            365 Days/Year
+          </span>
+        </div>
+      </div>
+      <div class="about-right">
+        <ul class="skill-list">
+          <li class="skill-item"><label>AI Development & Engineering <span>95%</span></label><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></li>
+          <li class="skill-item"><label>Data Science & Analytics <span>94%</span></label><div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div></li>
+          <li class="skill-item"><label>Tech Recruiting & Placement <span>96%</span></label><div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div></li>
+          <li class="skill-item"><label>Cloud Architecture <span>88%</span></label><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></li>
+          <li class="skill-item"><label>Resume Enhancement <span>98%</span></label><div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div></li>
+          <li class="skill-item"><label>DevOps & Platform Engineering <span>85%</span></label><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="sec-inner">
+    <div class="sec-hd" style="text-align:center;">
+      <div class="sec-eyebrow" style="display:block;text-align:center;">How We Work</div>
+      <h2>The VHire Tech Process</h2>
+      <p class="sec-sub" style="margin:0 auto;">For recruiting or consulting — a clear four-step process, done by humans from start to finish.</p>
+    </div>
+    <div class="process-steps">
+      <div class="pstep active">
+        <div class="pstep-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h4>Discovery</h4>
+        <p>We understand your goals — job type, stack, location preference, salary range — before making a single move.</p>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h4>Resume Enhancement</h4>
+        <p>Our team rewrites your resume for the role — ATS-optimized, keyword-aligned, human-reviewed.</p>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6z"/></svg>
+        </div>
+        <h4>Manual Applications</h4>
+        <p>Recruiters personally apply to curated roles on your behalf. No bots, no auto-apply tools — every submission is human.</p>
+      </div>
+      <div class="pstep">
+        <div class="pstep-circle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4>Placement & Follow-up</h4>
+        <p>We track responses, prep you for interviews, and stay engaged until you land the role and beyond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus">
+  <div class="sec-inner">
+    <div class="sec-hd-flex">
+      <div>
+        <div class="sec-eyebrow">Why VHire Tech</div>
+        <h2>What Makes Us <span>Different</span></h2>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>✋ No AI Auto-Apply</h4>
+        <p>We never use bots or AI tools to mass-apply. Every application is submitted by a real recruiter who reviewed your background first.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>🗓️ 365 Days of Hiring</h4>
+        <p>We recruit every month of the year. There is no off-season — IT professionals deserve year-round access to opportunities.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h4>🤖 AI-First Consulting</h4>
+        <p>AI is not a service we added later — it's our core. We help companies build AI products and place AI engineers who do the same.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>🌐 USA + India</h4>
+        <p>We understand both markets — US visa requirements, Indian IT hiring cycles, and the talent pipeline that connects both.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <h4>📄 Resume That Gets Responses</h4>
+        <p>Our resume enhancement is built by recruiters — not copy editors. We know what hiring managers want to see and tailor accordingly.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h4>💰 Pilot at Just $249</h4>
+        <p>Try before you commit. Our $249 pilot lets you see the quality of our work — resume + matching + applications — before investing more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="sec-inner">
+    <div class="sec-hd-flex">
+      <div>
+        <div class="sec-eyebrow">Success Stories</div>
+        <h2>IT Professionals We've <span>Placed</span></h2>
+      </div>
+    </div>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <blockquote>"VHire Tech rewrote my resume and I started getting interview calls within two weeks. They applied to roles I didn't even know were open. Placed as an ML Engineer in 5 weeks."</blockquote>
+        <div class="tcard-person"><div class="tcard-avatar">RK</div><div><div class="tcard-name">Ravi K.</div><div class="tcard-role">ML Engineer, Placed in Dallas, TX</div></div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <blockquote>"I was job searching for 3 months with zero callbacks. VHire Tech took over, fixed my resume, and manually applied to targeted roles. I had an offer in 6 weeks."</blockquote>
+        <div class="tcard-person"><div class="tcard-avatar">PV</div><div><div class="tcard-name">Priya V.</div><div class="tcard-role">Data Engineer, Placed Remotely</div></div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <blockquote>"What I loved most — no bots. My recruiter personally called me to discuss every role before applying. That level of attention is rare. Worth every penny of the $249 pilot."</blockquote>
+        <div class="tcard-person"><div class="tcard-avatar">AM</div><div><div class="tcard-name">Arjun M.</div><div class="tcard-role">Cloud Architect, Placed in Atlanta, GA</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="sec-inner">
+    <div class="sec-hd">
+      <div class="sec-eyebrow">Get In Touch</div>
+      <h2>Ready to <span>Get Hired?</span></h2>
+      <p class="sec-sub">Reach out to start your pilot, discuss a consulting project, or simply ask a question. We respond within one business day.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <p>VHire Tech serves IT professionals and companies across the USA and India. Whether you're a job seeker ready to land your next role or a company needing AI consulting or tech talent — we're your partner.</p>
+        <div class="cinfo">
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6z"/></svg></div>
+            <div class="cinfo-text"><strong>USA</strong><span>+1 (740) 803-9800</span></div>
+          </div>
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6z"/></svg></div>
+            <div class="cinfo-text"><strong>India</strong><span>+91 93475 83545</span></div>
+          </div>
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="cinfo-text"><strong>Email</strong><span>info@vhire.tech</span></div>
+          </div>
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div class="cinfo-text"><strong>Markets</strong><span>USA &amp; India — Serving IT Professionals Worldwide</span></div>
+          </div>
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="cinfo-text"><strong>Response Time</strong><span>Within 1 business day</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">Send Us a Message</div>
+        <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--blue);font-size:.95rem;padding:16px 0\'>&#10003; Message received — we\'ll be in touch within one business day.</p>'">
+          <div class="frow">
+            <div><label class="flabel">Full Name *</label><input type="text" placeholder="Your name" required/></div>
+            <div><label class="flabel">Email Address *</label><input type="email" placeholder="you@email.com" required/></div>
+          </div>
+          <div><label class="flabel">Current Role / Job Title</label><input type="text" placeholder="e.g. Data Engineer, ML Engineer"/></div>
+          <div>
+            <label class="flabel">I'm interested in *</label>
+            <select required>
+              <option value="" disabled selected>Select one</option>
+              <option>$249 Pilot — Resume + Job Matching</option>
+              <option>IT Recruiting / Get Hired</option>
+              <option>AI Development Consulting</option>
+              <option>AI Engineering Consulting</option>
+              <option>Data Science & Analytics</option>
+              <option>Cloud Solutions</option>
+              <option>Staff Augmentation / Hire Talent</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div><label class="flabel">Message</label><textarea placeholder="Tell us about your situation, target role, or project needs..."></textarea></div>
+          <button class="form-btn" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <div class="logo-icon">V</div>
+        VHire<span>Tech</span>
+      </div>
+      <p>IT Recruiting and AI Consulting firm serving professionals and companies across the USA and India. Helping IT professionals get hired — every month of the year.</p>
+      <div class="footer-socials">
+        <a href="#" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" title="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        </a>
+        <a href="#" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>AI & IT Consulting</h5>
+      <ul>
+        <li><a href="#">AI Development</a></li>
+        <li><a href="#">AI Engineering</a></li>
+        <li><a href="#">Data Science</a></li>
+        <li><a href="#">Cloud Solutions</a></li>
+        <li><a href="#">DevOps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Tech Recruiting</h5>
+      <ul>
+        <li><a href="#">AI / ML Engineers</a></li>
+        <li><a href="#">Software Engineers</a></li>
+        <li><a href="#">Data Professionals</a></li>
+        <li><a href="#">Staff Augmentation</a></li>
+        <li><a href="#">Executive Search</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#pilot">Pilot — $249</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 VHire Tech, LLC. All rights reserved. USA + India.</p>
+    <p><a href="mailto:info@vhire.tech">info@vhire.tech</a> &nbsp;·&nbsp; USA: +1 (740) 803-9800 &nbsp;·&nbsp; India: +91 93475 83545</p>
+  </div>
+</footer>
+
+</body>
+</html>
