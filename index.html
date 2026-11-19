@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>VHire Tech | IT Recruiting & AI Consulting</title>
+<title>VHire Tech | IT Recruiting & AI Consulting | Worldwide</title>
+<meta name="description" content="VHire Tech — IT Recruiting & AI Consulting firm helping IT professionals land jobs worldwide. F-1 OPT, H-1B, CPT, STEM OPT placement. AI development, cloud, and data consulting services."/>
+<meta name="keywords" content="IT recruiting, AI consulting, F-1 OPT jobs, H-1B transfer, tech staffing, AI development, cloud solutions, VHire Tech"/>
+<meta name="author" content="VHire Tech"/>
+<meta property="og:title" content="VHire Tech | IT Recruiting & AI Consulting"/>
+<meta property="og:description" content="Land your dream IT job or find top tech talent. Specializing in F-1, H-1B, AI & cloud. Worldwide reach."/>
+<meta property="og:url" content="https://vhire.tech"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://vhire.tech/og-preview.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="VHire Tech | IT Recruiting & AI Consulting"/>
+<meta name="twitter:description" content="Land your dream IT job. F-1 OPT, H-1B, AI & cloud consulting. Worldwide."/>
+<link rel="canonical" href="https://vhire.tech"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -32,7 +44,8 @@ a{text-decoration:none;color:inherit;}
 .topbar-tag{background:var(--teal);color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:2px;letter-spacing:.04em;}
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:2px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;}
+nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:2px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 4px 20px rgba(0,87,184,.12);}
 .logo{font-size:1.5rem;font-weight:800;color:var(--blue);display:flex;align-items:center;gap:10px;letter-spacing:-.02em;}
 .logo-icon{width:36px;height:36px;background:var(--blue);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:800;flex-shrink:0;}
 .logo-text span{color:var(--teal);}
@@ -40,12 +53,23 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:2px solid va
 .nav-links>li>a{display:flex;align-items:center;gap:5px;color:var(--text);font-size:.875rem;font-weight:600;padding:0 15px;height:68px;border-bottom:3px solid transparent;transition:var(--T);}
 .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--blue);border-bottom-color:var(--blue);}
 .has-drop{position:relative;}
-.dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);box-shadow:0 8px 24px rgba(0,0,0,.1);min-width:230px;padding:8px 0;z-index:300;}
-.has-drop:hover .dropdown{display:block;}
+.dropdown{opacity:0;pointer-events:none;transform:translateY(8px);position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-top:3px solid var(--blue);box-shadow:0 8px 24px rgba(0,0,0,.1);min-width:230px;padding:8px 0;z-index:300;transition:opacity .18s ease,transform .18s ease;}
+.has-drop:hover .dropdown{opacity:1;pointer-events:all;transform:translateY(0);}
 .dropdown a{display:flex;align-items:center;gap:10px;padding:11px 18px;font-size:.84rem;color:var(--text);font-weight:500;transition:var(--T);}
 .dropdown a:hover{background:var(--sky);color:var(--blue);}
 .dropdown a .dico{width:18px;text-align:center;color:var(--blue);}
 .nav-actions{display:flex;align-items:center;gap:10px;}
+/* hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--T);}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:2px solid var(--border);padding:16px 5%;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:12px 0;font-size:.9rem;font-weight:600;color:var(--text);border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border:none;}
+.mobile-menu a:hover{color:var(--blue);}
 .btn-ghost{border:2px solid var(--blue);color:var(--blue);background:transparent;padding:9px 20px;border-radius:3px;font-size:.85rem;font-weight:700;transition:var(--T);display:inline-block;}
 .btn-ghost:hover{background:var(--blue);color:#fff;}
 .btn-solid{background:var(--blue);color:#fff;border:2px solid var(--blue);padding:9px 20px;border-radius:3px;font-size:.85rem;font-weight:700;transition:var(--T);display:inline-block;}
@@ -92,12 +116,162 @@ nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:2px solid va
 .pilot-btn:hover{background:#e0f9f8;}
 
 /* ── SERVICE TABS ── */
-.service-tabs{background:#fff;border-bottom:1px solid var(--border);padding:0 5%;}
+.service-tabs{background:#fff;border-bottom:1px solid var(--border);padding:0 5%;position:sticky;top:68px;z-index:150;}
 .stabs-inner{max-width:1200px;margin:0 auto;display:flex;overflow-x:auto;}
 .stab{padding:17px 20px;font-size:.86rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;transition:var(--T);white-space:nowrap;display:flex;align-items:center;gap:8px;}
 .stab:hover{color:var(--blue);}
 .stab.on{color:var(--blue);border-bottom-color:var(--blue);}
 .stab .stab-ico{width:18px;height:18px;display:flex;align-items:center;justify-content:center;}
+/* ── SERVICE DETAIL PANELS ── */
+/* INSIGHTS SECTION */
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.insight-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,87,184,.07);transition:transform .3s ease,box-shadow .3s ease;}
+.insight-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,87,184,.18);}
+.ic-img{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.ic-body{padding:22px 20px 24px;transition:background .35s ease;}
+.insight-card:hover .ic-body{background:var(--blue);}
+.ic-tags{display:flex;gap:8px;margin-bottom:10px;}
+.ic-tags span{font-size:.6rem;font-weight:800;letter-spacing:.1em;color:var(--teal);background:rgba(0,163,161,.1);padding:3px 8px;border-radius:20px;transition:color .35s,background .35s;}
+.insight-card:hover .ic-tags span{color:rgba(255,255,255,.8);background:rgba(255,255,255,.15);}
+.ic-body h3{font-size:.97rem;font-weight:800;color:var(--text);line-height:1.35;margin:0 0 8px;transition:color .35s;}
+.insight-card:hover .ic-body h3{color:#fff;}
+.ic-body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0 0 16px;transition:color .35s;}
+.insight-card:hover .ic-body p{color:rgba(255,255,255,.8);}
+.ic-link{font-size:.8rem;font-weight:700;color:var(--blue);text-decoration:none;transition:color .35s;}
+.insight-card:hover .ic-link{color:#fff;}
+.ic-live-badge{display:inline-flex;align-items:center;gap:5px;font-size:.6rem;font-weight:800;color:#e53935;background:#fff0f0;border-radius:20px;padding:3px 8px;margin-bottom:12px;}
+.ic-live-badge::before{content:'';width:6px;height:6px;background:#e53935;border-radius:50%;animation:livePulse 1.4s ease infinite;}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+@media(max-width:900px){.insights-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.insights-grid{grid-template-columns:1fr;}}
+/* END INSIGHTS */
+
+/* MASCOT */
+#vbot{position:fixed;z-index:9999;pointer-events:none;transition:left .6s cubic-bezier(.34,1.56,.64,1),top .6s cubic-bezier(.34,1.56,.64,1),transform .4s ease;bottom:120px;right:-60px;}
+#vbot svg{width:64px;height:64px;filter:drop-shadow(0 4px 12px rgba(0,87,184,.35));}
+@keyframes botBob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+@keyframes botPeek{0%{transform:translateX(60px)}100%{transform:translateX(0)}}
+#vbot.peeking{animation:botPeek .5s cubic-bezier(.34,1.56,.64,1) forwards;}
+#vbot.bobbing svg{animation:botBob 1.8s ease-in-out infinite;}
+.vbot-bubble{position:fixed;z-index:9998;background:#fff;border:2px solid var(--blue);border-radius:12px 12px 4px 12px;padding:8px 12px;font-size:.72rem;font-weight:700;color:var(--text);box-shadow:0 4px 16px rgba(0,87,184,.18);pointer-events:none;transition:opacity .3s ease;white-space:nowrap;max-width:200px;white-space:normal;line-height:1.4;}
+/* END MASCOT */
+
+/* ── DARK MODE ── */
+[data-theme="dark"]{
+  --blue:#4d9fff;--blue2:#3a8ef0;--teal:#00d4d1;
+  --white:#1a1f2e;--light:#12161f;--border:#2a3148;
+  --text:#e8ecf4;--muted:#8892a4;--sky:#1e2638;
+}
+[data-theme="dark"] body{background:#12161f;color:#e8ecf4;}
+[data-theme="dark"] nav{background:#1a1f2e;border-bottom-color:#2a3148;}
+[data-theme="dark"] .topbar{background:#0d1220;}
+[data-theme="dark"] .hero-section{background:linear-gradient(135deg,#0d1a3a 0%,#0a2d4a 100%);}
+[data-theme="dark"] .insight-card,[data-theme="dark"] .sdp-item,[data-theme="dark"] .rcat{background:#1e2638;border-color:#2a3148;}
+[data-theme="dark"] .ic-body{background:#1e2638;}
+[data-theme="dark"] .insight-card:hover .ic-body{background:var(--blue2);}
+[data-theme="dark"] footer{background:#0d1220;}
+[data-theme="dark"] #kitty-bubble{background:#1e2638;border-color:#4d9fff;color:#e8ecf4;}
+[data-theme="dark"] .vbot-bubble{background:#1e2638;color:#e8ecf4;}
+[data-theme="dark"] .contact-form-wrap,[data-theme="dark"] .contact-info-wrap{background:#1e2638;}
+[data-theme="dark"] input,[data-theme="dark"] select,[data-theme="dark"] textarea{background:#12161f;color:#e8ecf4;border-color:#2a3148;}
+
+/* dark mode toggle btn */
+#dmToggle{
+  position:fixed;top:50%;right:0;transform:translateY(-50%);
+  z-index:8000;background:#fff;border:2px solid var(--border);
+  border-radius:12px 0 0 12px;width:36px;height:72px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;box-shadow:-2px 0 12px rgba(0,0,0,.08);transition:var(--T);
+  padding:0;border-right:none;
+}
+[data-theme="dark"] #dmToggle{background:#1e2638;border-color:#2a3148;}
+#dmToggle:hover{width:42px;}
+#dmToggle .dm-icon{font-size:1.1rem;line-height:1;}
+#dmToggle .dm-label{font-size:.5rem;font-weight:800;color:var(--muted);letter-spacing:.04em;writing-mode:vertical-rl;text-orientation:mixed;}
+
+/* ── WHATSAPP FLOAT ── */
+#waFloat{
+  position:fixed;bottom:24px;left:24px;z-index:8500;
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c3e);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);
+  cursor:pointer;text-decoration:none;
+  animation:waPulse 2.5s ease-in-out infinite;
+  transition:transform .2s ease;
+}
+#waFloat:hover{transform:scale(1.12);}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)}
+  50%{box-shadow:0 4px 32px rgba(37,211,102,.75),0 0 0 10px rgba(37,211,102,.12)}
+}
+#waFloat svg{width:30px;height:30px;}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:#fff;padding:80px 5%;}
+[data-theme="dark"] #testimonials{background:#1a1f2e;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.testi-card{background:var(--sky);border-radius:12px;padding:28px 24px;position:relative;transition:transform .3s,box-shadow .3s;}
+[data-theme="dark"] .testi-card{background:#12161f;}
+.testi-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,87,184,.12);}
+.testi-quote{font-size:2.5rem;color:var(--blue);line-height:1;margin-bottom:12px;opacity:.35;}
+.testi-text{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;flex-shrink:0;}
+.testi-name{font-weight:800;font-size:.85rem;color:var(--text);}
+.testi-role{font-size:.75rem;color:var(--muted);}
+.testi-stars{color:#f59e0b;font-size:.85rem;margin-bottom:14px;}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.testi-grid{grid-template-columns:1fr;}}
+
+/* ── JOB BOARD ── */
+#jobs{background:var(--light);padding:80px 5%;}
+[data-theme="dark"] #jobs{background:#12161f;}
+.jobs-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.jfilter{padding:8px 18px;border-radius:50px;border:2px solid var(--border);background:#fff;font-size:.78rem;font-weight:700;cursor:pointer;transition:var(--T);color:var(--muted);}
+[data-theme="dark"] .jfilter{background:#1e2638;border-color:#2a3148;color:var(--muted);}
+.jfilter.active,.jfilter:hover{border-color:var(--blue);color:var(--blue);background:var(--sky);}
+[data-theme="dark"] .jfilter.active,[data-theme="dark"] .jfilter:hover{background:#0d1a3a;}
+.jobs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.job-card{background:#fff;border:2px solid var(--border);border-radius:10px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;transition:var(--T);cursor:pointer;}
+[data-theme="dark"] .job-card{background:#1e2638;border-color:#2a3148;}
+.job-card:hover{border-color:var(--blue);box-shadow:0 6px 24px rgba(0,87,184,.1);transform:translateY(-3px);}
+.job-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.job-title{font-weight:800;font-size:.95rem;color:var(--text);}
+.job-new{background:#dcfce7;color:#15803d;font-size:.6rem;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;}
+[data-theme="dark"] .job-new{background:#0d2a1a;color:#4ade80;}
+.job-co{font-size:.78rem;color:var(--muted);font-weight:600;}
+.job-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.job-tag{font-size:.65rem;font-weight:700;color:var(--blue);background:var(--sky);padding:3px 9px;border-radius:20px;}
+[data-theme="dark"] .job-tag{background:#0d1a3a;}
+.job-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+.job-loc{font-size:.75rem;color:var(--muted);}
+.job-apply{font-size:.75rem;font-weight:800;color:var(--blue);text-decoration:none;padding:6px 14px;border:2px solid var(--blue);border-radius:50px;transition:var(--T);}
+.job-apply:hover{background:var(--blue);color:#fff;}
+@media(max-width:700px){.jobs-grid{grid-template-columns:1fr;}}
+.svc-detail-panel{display:none;background:var(--sky);border-bottom:3px solid var(--blue);padding:0 5%;overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.4,0,.2,1),padding .3s ease;}
+.svc-detail-panel.open{display:block;max-height:800px;padding:36px 5%;}
+.sdp-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;}
+.sdp-title{font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:12px;}
+.sdp-title span{color:var(--blue);}
+.sdp-lead{font-size:.93rem;color:var(--muted);line-height:1.78;margin-bottom:20px;}
+.sdp-items{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+.sdp-item{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 16px;transition:var(--T);}
+.sdp-item:hover{border-color:var(--blue);transform:translateX(4px);}
+.sdp-item-ico{width:34px;height:34px;background:var(--sky);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;}
+.sdp-item-body h4{font-size:.86rem;font-weight:700;color:var(--text);margin-bottom:3px;}
+.sdp-item-body p{font-size:.77rem;color:var(--muted);line-height:1.55;}
+.sdp-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+.sdp-tag{background:#fff;border:1px solid var(--border);border-radius:2px;padding:4px 11px;font-size:.72rem;font-weight:600;color:var(--blue);}
+.sdp-cta{background:var(--blue);color:#fff;padding:12px 24px;border-radius:3px;font-size:.88rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:var(--T);}
+.sdp-cta:hover{background:var(--blue2);}
+.sdp-visual{background:linear-gradient(135deg,var(--blue),#003d8a);border-radius:8px;padding:28px;color:#fff;}
+.sdp-visual h4{font-size:1rem;font-weight:700;margin-bottom:16px;color:#a8d8ff;}
+.sdp-step{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.sdp-step:last-child{border:none;}
+.sdp-step-num{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
+.sdp-step-txt{font-size:.82rem;color:rgba(255,255,255,.85);}
+@media(max-width:768px){.sdp-inner{grid-template-columns:1fr;}.svc-detail-panel.open{max-height:1400px;}}
 
 /* ── SECTIONS ── */
 section{padding:80px 5%;}
@@ -302,9 +476,73 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
   .tgrid{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr;}
   .nav-links,.nav-actions{display:none;}
+  .hamburger{display:flex;}
   .hero-stats{flex-wrap:wrap;gap:18px;}
   .frow{grid-template-columns:1fr;}
 }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── JOB TICKER ── */
+.ticker-wrap{background:var(--text);padding:10px 0;overflow:hidden;position:relative;}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--text),transparent);}
+.ticker-wrap::after{right:0;background:linear-gradient(-90deg,var(--text),transparent);}
+.ticker{display:flex;white-space:nowrap;animation:ticker 32s linear infinite;}
+.ticker:hover{animation-play-state:paused;}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85);}
+.ticker-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;flex-shrink:0;}
+.ticker-hot{background:var(--teal);color:#fff;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:2px;margin-left:6px;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ── AI BOT ── */
+.bot-bubble{position:fixed;bottom:28px;right:28px;z-index:1000;cursor:pointer;display:flex;align-items:center;}
+.bot-avatar{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,87,184,.4);transition:transform .2s ease,box-shadow .2s ease;position:relative;}
+.bot-avatar:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(0,87,184,.5);}
+.bot-ping{position:absolute;top:0;right:0;width:14px;height:14px;background:#22c55e;border-radius:50%;border:2px solid #fff;animation:ping 2s infinite;}
+@keyframes ping{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.3);opacity:.7;}}
+.bot-label{position:absolute;right:72px;background:var(--text);color:#fff;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;}
+.bot-bubble:hover .bot-label{opacity:1;}
+.bot-window{position:fixed;bottom:108px;right:28px;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:16px;box-shadow:0 8px 48px rgba(0,0,0,.18);z-index:1000;display:none;flex-direction:column;overflow:hidden;border:1px solid var(--border);}
+.bot-window.open{display:flex;}
+.bot-header{background:linear-gradient(135deg,var(--blue),#003d8a);padding:16px 18px;display:flex;align-items:center;gap:12px;}
+.bot-header-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;}
+.bot-header-info{flex:1;}
+.bot-header-name{font-size:.9rem;font-weight:700;color:#fff;}
+.bot-header-status{font-size:.72rem;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:5px;margin-top:2px;}
+.bot-header-status::before{content:'';width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;}
+.bot-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.8);font-size:1.4rem;padding:0;line-height:1;}
+.bot-messages{flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;max-height:300px;min-height:150px;}
+.bot-msg{max-width:88%;padding:10px 14px;border-radius:12px;font-size:.82rem;line-height:1.55;animation:msgIn .25s ease;}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.bot-msg.bot{background:var(--sky);color:var(--text);border-bottom-left-radius:3px;align-self:flex-start;}
+.bot-msg.user{background:var(--blue);color:#fff;border-bottom-right-radius:3px;align-self:flex-end;}
+.bot-typing{display:flex;gap:4px;align-items:center;padding:10px 14px;background:var(--sky);border-radius:12px;border-bottom-left-radius:3px;width:fit-content;align-self:flex-start;}
+.bot-typing span{width:7px;height:7px;background:var(--muted);border-radius:50%;animation:dot .9s infinite;}
+.bot-typing span:nth-child(2){animation-delay:.15s;}
+.bot-typing span:nth-child(3){animation-delay:.3s;}
+@keyframes dot{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);}}
+.bot-chips{padding:4px 16px 10px;display:flex;flex-wrap:wrap;gap:7px;}
+.bot-chip{background:var(--sky);border:1.5px solid var(--border);color:var(--blue);font-size:.74rem;font-weight:600;padding:6px 12px;border-radius:20px;cursor:pointer;transition:var(--T);}
+.bot-chip:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+.bot-input-row{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--border);}
+.bot-input{flex:1;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:.82rem;font-family:inherit;outline:none;transition:border-color .15s;}
+.bot-input:focus{border-color:var(--blue);}
+.bot-send{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:9px 14px;cursor:pointer;transition:var(--T);}
+.bot-send:hover{background:var(--blue2);}
+/* hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--T);}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:2px solid var(--border);padding:16px 5%;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:12px 0;font-size:.9rem;font-weight:600;color:var(--text);border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border:none;}
+.mobile-menu a:hover{color:var(--blue);}
 </style>
 </head>
 <body>
@@ -312,15 +550,15 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-left">
-    <a href="tel:+15139577488">
+    <a href="tel:+18595679144">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-      USA: +1 (740) 803-9800
+      USA: +1 (859) 567-9144
     </a>
-    <a href="tel:+919347583545">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-      India: +91 93475 83545
+    <a href="https://wa.me/917036363878" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      India: +91 70363 63878
     </a>
-    <a href="mailto:info@vhire.tech">
+    <a href="mailto:info@vhire.tech?subject=Inquiry%20from%20vhire.tech">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       info@vhire.tech
     </a>
@@ -376,15 +614,53 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
     <a class="btn-ghost" href="#pilot">Try Pilot — $249</a>
     <a class="btn-solid" href="#contact">Get Hired</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#it-consulting">AI & IT Consulting</a>
+  <a href="#recruiting">Tech Recruiting</a>
+  <a href="#pilot">Pilot — $249</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+18595679144">📞 USA: +1 (859) 567-9144</a>
+  <a href="https://wa.me/917036363878" target="_blank">💬 India WhatsApp: +91 70363 63878</a>
+</div>
+
+<!-- JOB TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item"><span class="ticker-dot"></span>AI Engineer — Remote <span class="ticker-hot">URGENT</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Data Scientist — Hybrid</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>ML Engineer — Full-time <span class="ticker-hot">HOT</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Cloud Architect — Contract</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Full Stack Developer — Remote <span class="ticker-hot">OPEN</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>DevOps Engineer — On-site</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Python Developer — Remote <span class="ticker-hot">URGENT</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Data Engineer — Hybrid</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>React Developer — Remote</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>AI Engineer — Remote <span class="ticker-hot">URGENT</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Data Scientist — Hybrid</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>ML Engineer — Full-time <span class="ticker-hot">HOT</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Cloud Architect — Contract</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Full Stack Developer — Remote <span class="ticker-hot">OPEN</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>DevOps Engineer — On-site</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Python Developer — Remote <span class="ticker-hot">URGENT</span></div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Data Engineer — Hybrid</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>React Developer — Remote</div>
+  </div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">🌐 USA + INDIA · IT RECRUITING & AI CONSULTING</div>
+      <div class="hero-badge">🌐 WORLDWIDE · IT RECRUITING & AI CONSULTING</div>
       <h1>Get IT Professionals <span>Hired — Anytime,</span> Any Season</h1>
-      <p class="hero-sub">VHire Tech specializes in placing IT professionals year-round and delivering AI-powered consulting for growing companies. Serving clients across the USA and India.</p>
+      <p class="hero-sub">VHire Tech specializes in placing IT professionals year-round and delivering AI-powered consulting for growing companies. Serving clients worldwide.</p>
       <div class="hero-motto">
         🤝 100% Human Screened · No AI Auto-Apply · Every Application is Manual
       </div>
@@ -398,7 +674,7 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
       <div class="hero-stats">
         <div class="hstat"><div class="hstat-num">150+</div><div class="hstat-lbl">IT Pros Placed</div></div>
         <div class="hstat"><div class="hstat-num">365</div><div class="hstat-lbl">Days / Year Hiring</div></div>
-        <div class="hstat"><div class="hstat-num">USA+IN</div><div class="hstat-lbl">Dual Markets</div></div>
+        <div class="hstat"><div class="hstat-num">🌍</div><div class="hstat-lbl">Worldwide Reach</div></div>
       </div>
     </div>
     <div class="hero-panel">
@@ -455,14 +731,170 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
 </div>
 
 <!-- SERVICE TABS -->
-<div class="service-tabs">
+<div class="service-tabs" id="serviceTabs">
   <div class="stabs-inner">
-    <div class="stab on"><span>🤖</span> AI Development</div>
-    <div class="stab"><span>🧠</span> AI Engineering</div>
-    <div class="stab"><span>📊</span> Data & Analytics</div>
-    <div class="stab"><span>☁️</span> Cloud Solutions</div>
-    <div class="stab"><span>⚙️</span> DevOps</div>
-    <div class="stab"><span>🎯</span> Tech Staffing</div>
+    <div class="stab" data-panel="panel-aidev"><span>🤖</span> AI Development</div>
+    <div class="stab" data-panel="panel-aieng"><span>🧠</span> AI Engineering</div>
+    <div class="stab" data-panel="panel-data"><span>📊</span> Data & Analytics</div>
+    <div class="stab" data-panel="panel-cloud"><span>☁️</span> Cloud Solutions</div>
+    <div class="stab" data-panel="panel-devops"><span>⚙️</span> DevOps</div>
+    <div class="stab" data-panel="panel-staffing"><span>🎯</span> Tech Staffing</div>
+  </div>
+</div>
+
+<!-- AI DEVELOPMENT PANEL -->
+<div class="svc-detail-panel" id="panel-aidev">
+  <div class="sdp-inner">
+    <div>
+      <div class="sdp-title">🤖 AI <span>Development</span></div>
+      <p class="sdp-lead">We build production-grade AI systems — from LLM-powered apps and AI agents to intelligent automation workflows that run at enterprise scale.</p>
+      <div class="sdp-items">
+        <div class="sdp-item"><div class="sdp-item-ico">🧠</div><div class="sdp-item-body"><h4>LLM Integration & Fine-tuning</h4><p>Connect OpenAI, Anthropic, Llama, or Mistral to your systems. Fine-tune models on your proprietary data for precision results.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🤖</div><div class="sdp-item-body"><h4>AI Agent Development</h4><p>Build autonomous AI agents that plan, reason, and execute multi-step tasks — from customer service bots to research pipelines.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">📄</div><div class="sdp-item-body"><h4>RAG Systems (Retrieval-Augmented Gen)</h4><p>Give your AI access to your documents, databases, and knowledge bases. Accurate, grounded, enterprise-ready answers.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">⚙️</div><div class="sdp-item-body"><h4>AI Workflow Automation</h4><p>Replace manual processes with intelligent pipelines — document processing, decision automation, and smart data extraction.</p></div></div>
+      </div>
+      <div class="sdp-tags"><span class="sdp-tag">OpenAI GPT-4</span><span class="sdp-tag">LangChain</span><span class="sdp-tag">LlamaIndex</span><span class="sdp-tag">Pinecone</span><span class="sdp-tag">HuggingFace</span><span class="sdp-tag">Python</span></div>
+      <br/><a class="sdp-cta" href="mailto:info@vhire.tech?subject=AI%20Development%20Inquiry">Start AI Project →</a>
+    </div>
+    <div class="sdp-visual">
+      <h4>How We Deliver AI Projects</h4>
+      <div class="sdp-step"><div class="sdp-step-num">1</div><div class="sdp-step-txt">Discovery — understand your data, goals, and constraints</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">2</div><div class="sdp-step-txt">Architecture design — choose models, retrieval, and infrastructure</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">3</div><div class="sdp-step-txt">Build MVP — working AI prototype in 2–4 weeks</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">4</div><div class="sdp-step-txt">Integration — connect to your systems, APIs, and databases</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">5</div><div class="sdp-step-txt">Production deploy — monitoring, scaling, and feedback loops</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- AI ENGINEERING PANEL -->
+<div class="svc-detail-panel" id="panel-aieng">
+  <div class="sdp-inner">
+    <div>
+      <div class="sdp-title">🧠 AI <span>Engineering</span></div>
+      <p class="sdp-lead">End-to-end ML engineering: model training, fine-tuning, deployment pipelines, MLOps infrastructure, and scalable inference serving for AI products at scale.</p>
+      <div class="sdp-items">
+        <div class="sdp-item"><div class="sdp-item-ico">🏋️</div><div class="sdp-item-body"><h4>Model Training & Fine-tuning</h4><p>Train custom models from scratch or fine-tune foundational models on your domain data using PyTorch, TensorFlow, or JAX.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🚀</div><div class="sdp-item-body"><h4>MLOps & Model Deployment</h4><p>Build CI/CD pipelines for ML — automated training, testing, versioning, and deployment with MLflow, Kubeflow, or SageMaker.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">📐</div><div class="sdp-item-body"><h4>AI Model Architecture Design</h4><p>Design custom neural architectures — transformers, CNNs, GNNs — tailored to your specific use case and performance requirements.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🔄</div><div class="sdp-item-body"><h4>AI System Migration</h4><p>Migrate legacy ML systems to modern cloud-native stacks. Move from batch inference to real-time, from on-prem to AWS/GCP/Azure.</p></div></div>
+      </div>
+      <div class="sdp-tags"><span class="sdp-tag">PyTorch</span><span class="sdp-tag">TensorFlow</span><span class="sdp-tag">MLflow</span><span class="sdp-tag">Kubeflow</span><span class="sdp-tag">SageMaker</span><span class="sdp-tag">ONNX</span></div>
+      <br/><a class="sdp-cta" href="mailto:info@vhire.tech?subject=AI%20Engineering%20Inquiry">Get AI Engineering Help →</a>
+    </div>
+    <div class="sdp-visual">
+      <h4>AI Engineering Capabilities</h4>
+      <div class="sdp-step"><div class="sdp-step-num">🔬</div><div class="sdp-step-txt">Research & baseline model selection</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">⚡</div><div class="sdp-step-txt">Model training on GPU clusters (A100, H100)</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">📦</div><div class="sdp-step-txt">Containerized deployment (Docker + Kubernetes)</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">📊</div><div class="sdp-step-txt">Model monitoring, drift detection, retraining</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🌍</div><div class="sdp-step-txt">Global low-latency inference serving</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DATA & ANALYTICS PANEL -->
+<div class="svc-detail-panel" id="panel-data">
+  <div class="sdp-inner">
+    <div>
+      <div class="sdp-title">📊 Data & <span>Analytics</span></div>
+      <p class="sdp-lead">From raw data to business decisions — we build data pipelines, analytics platforms, and BI dashboards that power intelligent organizations worldwide.</p>
+      <div class="sdp-items">
+        <div class="sdp-item"><div class="sdp-item-ico">🏗️</div><div class="sdp-item-body"><h4>Data Engineering & Pipelines</h4><p>Build reliable ELT/ETL pipelines using Spark, dbt, Airflow, or Databricks. From ingestion to warehouse to consumption layer.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">📈</div><div class="sdp-item-body"><h4>BI Dashboards & Reporting</h4><p>Power BI, Tableau, Looker dashboards built for C-suite decisions. Executive scorecards, KPI trackers, and drill-down analytics.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🔮</div><div class="sdp-item-body"><h4>Predictive Analytics & Modeling</h4><p>Statistical models, churn prediction, revenue forecasting, and demand planning — with Python, R, or SQL-based ML solutions.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">❄️</div><div class="sdp-item-body"><h4>Data Warehouse Architecture</h4><p>Design and optimize Snowflake, BigQuery, Redshift, or Azure Synapse data warehouses for analytics-at-scale workloads.</p></div></div>
+      </div>
+      <div class="sdp-tags"><span class="sdp-tag">Python</span><span class="sdp-tag">Spark</span><span class="sdp-tag">dbt</span><span class="sdp-tag">Databricks</span><span class="sdp-tag">Power BI</span><span class="sdp-tag">Snowflake</span></div>
+      <br/><a class="sdp-cta" href="mailto:info@vhire.tech?subject=Data%20Analytics%20Inquiry">Start Data Project →</a>
+    </div>
+    <div class="sdp-visual">
+      <h4>Data Platform Stack We Build</h4>
+      <div class="sdp-step"><div class="sdp-step-num">📥</div><div class="sdp-step-txt">Ingestion — APIs, databases, files, streams</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🔄</div><div class="sdp-step-txt">Transform — dbt models, Spark jobs, SQL logic</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🏛️</div><div class="sdp-step-txt">Warehouse — Snowflake / BigQuery / Synapse</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">📊</div><div class="sdp-step-txt">Visualize — Power BI / Tableau / Looker</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🤖</div><div class="sdp-step-txt">AI layer — ML models fed by clean data</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CLOUD PANEL -->
+<div class="svc-detail-panel" id="panel-cloud">
+  <div class="sdp-inner">
+    <div>
+      <div class="sdp-title">☁️ Cloud <span>Solutions</span></div>
+      <p class="sdp-lead">Architect, migrate, and optimize cloud environments on AWS, Azure, and GCP — built for AI workloads, enterprise security, and global scale.</p>
+      <div class="sdp-items">
+        <div class="sdp-item"><div class="sdp-item-ico">🏛️</div><div class="sdp-item-body"><h4>Cloud Architecture Design</h4><p>Design scalable, secure cloud architectures from scratch. Multi-region, high-availability, disaster recovery ready.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🚚</div><div class="sdp-item-body"><h4>Cloud Migration</h4><p>Lift-and-shift or re-architect — we migrate on-prem workloads, legacy apps, and databases to AWS, Azure, or GCP with zero data loss.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">💰</div><div class="sdp-item-body"><h4>Cloud Cost Optimization</h4><p>Audit and reduce your cloud spend — rightsizing, reserved instances, spot fleets, and FinOps dashboards to control costs.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🔒</div><div class="sdp-item-body"><h4>Cloud Security & Compliance</h4><p>IAM hardening, network security groups, encryption at rest and in transit. SOC2, HIPAA, and enterprise compliance frameworks.</p></div></div>
+      </div>
+      <div class="sdp-tags"><span class="sdp-tag">AWS</span><span class="sdp-tag">Azure</span><span class="sdp-tag">GCP</span><span class="sdp-tag">Terraform</span><span class="sdp-tag">Pulumi</span><span class="sdp-tag">Kubernetes</span></div>
+      <br/><a class="sdp-cta" href="mailto:info@vhire.tech?subject=Cloud%20Solutions%20Inquiry">Talk to Cloud Architect →</a>
+    </div>
+    <div class="sdp-visual">
+      <h4>Cloud Platforms We Work With</h4>
+      <div class="sdp-step"><div class="sdp-step-num">AWS</div><div class="sdp-step-txt">EC2, EKS, S3, Lambda, SageMaker, RDS</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">AZ</div><div class="sdp-step-txt">AKS, Synapse, Databricks, Azure ML, CosmosDB</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">GCP</div><div class="sdp-step-txt">GKE, BigQuery, Vertex AI, Cloud Run</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">IaC</div><div class="sdp-step-txt">Terraform / Pulumi — infrastructure as code</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🔐</div><div class="sdp-step-txt">Zero-trust security architecture</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DEVOPS PANEL -->
+<div class="svc-detail-panel" id="panel-devops">
+  <div class="sdp-inner">
+    <div>
+      <div class="sdp-title">⚙️ DevOps & <span>Platform Engineering</span></div>
+      <p class="sdp-lead">CI/CD pipelines, Kubernetes clusters, and platform engineering that keeps your teams shipping fast — purpose-built for AI/ML delivery workflows.</p>
+      <div class="sdp-items">
+        <div class="sdp-item"><div class="sdp-item-ico">🔁</div><div class="sdp-item-body"><h4>CI/CD Pipeline Design</h4><p>GitHub Actions, GitLab CI, Jenkins — automated build, test, and deploy pipelines that cut release cycles from weeks to hours.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🐳</div><div class="sdp-item-body"><h4>Kubernetes & Container Orchestration</h4><p>Deploy and manage containerized workloads on EKS, AKS, or GKE. Helm charts, auto-scaling, and multi-cluster management.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">📐</div><div class="sdp-item-body"><h4>Infrastructure as Code</h4><p>Terraform, Pulumi, or CDK — reproducible, version-controlled infrastructure deployments across all environments.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">📡</div><div class="sdp-item-body"><h4>Monitoring & Observability</h4><p>Prometheus, Grafana, Datadog, OpenTelemetry — full-stack observability for apps, infra, and AI model performance.</p></div></div>
+      </div>
+      <div class="sdp-tags"><span class="sdp-tag">Kubernetes</span><span class="sdp-tag">Docker</span><span class="sdp-tag">GitHub Actions</span><span class="sdp-tag">Terraform</span><span class="sdp-tag">Helm</span><span class="sdp-tag">Prometheus</span></div>
+      <br/><a class="sdp-cta" href="mailto:info@vhire.tech?subject=DevOps%20Inquiry">Get DevOps Help →</a>
+    </div>
+    <div class="sdp-visual">
+      <h4>DevOps Delivery Pipeline</h4>
+      <div class="sdp-step"><div class="sdp-step-num">💻</div><div class="sdp-step-txt">Code commit → automated tests triggered</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🔍</div><div class="sdp-step-txt">Security scan + quality gates</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🐳</div><div class="sdp-step-txt">Docker build → push to container registry</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">🚀</div><div class="sdp-step-txt">Auto-deploy to staging → approval → prod</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">📊</div><div class="sdp-step-txt">Monitor → alert → auto-rollback if needed</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STAFFING PANEL -->
+<div class="svc-detail-panel" id="panel-staffing">
+  <div class="sdp-inner">
+    <div>
+      <div class="sdp-title">🎯 Tech <span>Staffing & Recruiting</span></div>
+      <p class="sdp-lead">We place IT professionals in permanent, contract, and C2C roles worldwide. Human-screened, manually applied — no AI bots, no auto-spray.</p>
+      <div class="sdp-items">
+        <div class="sdp-item"><div class="sdp-item-ico">🌍</div><div class="sdp-item-body"><h4>Worldwide IT Placement</h4><p>We place professionals across the USA, India, Canada, UK, and beyond — in AI, data, cloud, software, and DevOps roles.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">📄</div><div class="sdp-item-body"><h4>Resume Enhancement + ATS Optimization</h4><p>Our recruiters rewrite your resume for the specific role and company. ATS-tuned, keyword-aligned, interview-ready.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">✋</div><div class="sdp-item-body"><h4>100% Manual Applications</h4><p>Every application is submitted by a human recruiter who reviewed your background. Zero auto-apply bots — ever.</p></div></div>
+        <div class="sdp-item"><div class="sdp-item-ico">🎓</div><div class="sdp-item-body"><h4>F-1 / H-1B / OPT Specialist</h4><p>We specialize in placing international students and visa-holders — CPT, OPT, STEM OPT, H-1B transfer, and direct sponsorship roles.</p></div></div>
+      </div>
+      <div class="sdp-tags"><span class="sdp-tag">F-1 OPT/CPT</span><span class="sdp-tag">H-1B</span><span class="sdp-tag">STEM OPT</span><span class="sdp-tag">Direct Hire</span><span class="sdp-tag">Staff Aug</span><span class="sdp-tag">C2C/W2</span></div>
+      <br/><a class="sdp-cta" href="#pilot">Start $249 Pilot →</a>
+    </div>
+    <div class="sdp-visual">
+      <h4>How We Get You Hired</h4>
+      <div class="sdp-step"><div class="sdp-step-num">1</div><div class="sdp-step-txt">Intake call — understand your goals, visa, target roles</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">2</div><div class="sdp-step-txt">Resume rewrite — tailored by a human recruiter</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">3</div><div class="sdp-step-txt">Curate 10–15 matched roles from our network</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">4</div><div class="sdp-step-txt">Manually apply — recruiter submits each one personally</div></div>
+      <div class="sdp-step"><div class="sdp-step-num">5</div><div class="sdp-step-txt">Interview prep + offer negotiation support</div></div>
+    </div>
   </div>
 </div>
 
@@ -590,7 +1022,7 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
           </li>
           <li class="rlist-item">
             <div class="rlist-num">03</div>
-            <div class="rlist-body"><h4>USA + India Coverage</h4><p>Hiring across the US and India. We understand both markets, visa requirements, and the nuances of cross-border IT placement.</p></div>
+            <div class="rlist-body"><h4>Worldwide Coverage</h4><p>Hiring across the globe. We understand multiple markets, visa requirements, and the nuances of international IT placement.</p></div>
           </li>
         </ul>
       </div>
@@ -624,7 +1056,7 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
             <div class="rcat-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
             </div>
-            <h4>Staff Augmentation</h4><p>Vetted contractors who integrate into your team from week one, USA and India.</p>
+            <h4>Staff Augmentation</h4><p>Vetted contractors who integrate into your team from week one, worldwide.</p>
           </div>
           <div class="rcat">
             <div class="rcat-ico">
@@ -695,7 +1127,7 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
             </li>
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              USA & India Markets Covered
+              Worldwide Markets Covered
             </li>
           </ul>
           <a class="pilot-card-btn" href="#contact">Get Started — $249</a>
@@ -711,7 +1143,7 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
   <div class="sec-inner">
     <div class="sb-item"><div class="sb-num">150+</div><div class="sb-lbl">IT Pros Placed</div></div>
     <div class="sb-item"><div class="sb-num">365</div><div class="sb-lbl">Days/Year Recruiting</div></div>
-    <div class="sb-item"><div class="sb-num">2</div><div class="sb-lbl">Markets: USA + India</div></div>
+    <div class="sb-item"><div class="sb-num">2</div><div class="sb-lbl">Markets: Worldwide</div></div>
     <div class="sb-item"><div class="sb-num">100%</div><div class="sb-lbl">Human-Reviewed</div></div>
   </div>
 </div>
@@ -723,13 +1155,13 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
       <div class="about-left">
         <div class="sec-eyebrow">About VHire Tech</div>
         <h2>Built to Keep IT <span>Professionals Working</span></h2>
-        <p>VHire Tech was founded on one belief: IT professionals should be able to find great opportunities at any time of the year — not just during peak hiring seasons. We operate year-round, across the USA and India, with a focus on AI, data, cloud, and software engineering roles.</p>
+        <p>VHire Tech was founded on one belief: IT professionals should be able to find great opportunities at any time of the year — not just during peak hiring seasons. We operate year-round, worldwide, with a focus on AI, data, cloud, and software engineering roles.</p>
         <p>Every resume we touch is reviewed by a human. Every application we submit is done manually by one of our recruiters. We believe the personal touch makes the difference between a job applied and a job landed.</p>
         <p>On the consulting side, we lead with AI — helping companies build AI products, engineer ML systems, and modernize their tech stack for the intelligence era.</p>
         <div class="about-pills">
           <span class="about-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            USA + India
+            Worldwide
           </span>
           <span class="about-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
@@ -835,8 +1267,8 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
         <div class="why-card-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h4>🌐 USA + India</h4>
-        <p>We understand both markets — US visa requirements, Indian IT hiring cycles, and the talent pipeline that connects both.</p>
+        <h4>🌐 Worldwide</h4>
+        <p>We understand global markets — US visa requirements, international IT hiring cycles, and the talent pipeline that connects them.</p>
       </div>
       <div class="why-card">
         <div class="why-card-ico">
@@ -895,23 +1327,23 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
     </div>
     <div class="contact-wrap">
       <div class="contact-left">
-        <p>VHire Tech serves IT professionals and companies across the USA and India. Whether you're a job seeker ready to land your next role or a company needing AI consulting or tech talent — we're your partner.</p>
+        <p>VHire Tech serves IT professionals and companies worldwide. Whether you're a job seeker ready to land your next role or a company needing AI consulting or tech talent — we're your partner.</p>
         <div class="cinfo">
           <div class="cinfo-row">
             <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6z"/></svg></div>
-            <div class="cinfo-text"><strong>USA</strong><span>+1 (740) 803-9800</span></div>
+            <div class="cinfo-text"><strong>USA</strong><a href="tel:+18595679144" style="color:var(--muted);font-size:.78rem;">+1 (859) 567-9144</a></div>
           </div>
           <div class="cinfo-row">
             <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6z"/></svg></div>
-            <div class="cinfo-text"><strong>India</strong><span>+91 93475 83545</span></div>
+            <div class="cinfo-text"><strong>India (WhatsApp)</strong><a href="https://wa.me/917036363878" target="_blank" style="color:var(--teal);font-size:.78rem;font-weight:700;">+91 70363 63878 💬</a></div>
           </div>
           <div class="cinfo-row">
             <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="cinfo-text"><strong>Email</strong><span>info@vhire.tech</span></div>
+            <div class="cinfo-text"><strong>Email</strong><a href="mailto:info@vhire.tech" style="color:var(--blue);font-size:.78rem;">info@vhire.tech</a></div>
           </div>
           <div class="cinfo-row">
             <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-            <div class="cinfo-text"><strong>Markets</strong><span>USA &amp; India — Serving IT Professionals Worldwide</span></div>
+            <div class="cinfo-text"><strong>Markets</strong><span>🌍 Worldwide — USA, India &amp; Beyond</span></div>
           </div>
           <div class="cinfo-row">
             <div class="cinfo-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -921,15 +1353,15 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
       </div>
       <div class="contact-form">
         <div class="form-title">Send Us a Message</div>
-        <form onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--blue);font-size:.95rem;padding:16px 0\'>&#10003; Message received — we\'ll be in touch within one business day.</p>'">
+        <form id="contactForm">
           <div class="frow">
-            <div><label class="flabel">Full Name *</label><input type="text" placeholder="Your name" required/></div>
-            <div><label class="flabel">Email Address *</label><input type="email" placeholder="you@email.com" required/></div>
+            <div><label class="flabel">Full Name *</label><input type="text" id="cf-name" placeholder="Your name" required/></div>
+            <div><label class="flabel">Email Address *</label><input type="email" id="cf-email" placeholder="you@email.com" required/></div>
           </div>
-          <div><label class="flabel">Current Role / Job Title</label><input type="text" placeholder="e.g. Data Engineer, ML Engineer"/></div>
+          <div><label class="flabel">Current Role / Job Title</label><input type="text" id="cf-role" placeholder="e.g. Data Engineer, ML Engineer"/></div>
           <div>
             <label class="flabel">I'm interested in *</label>
-            <select required>
+            <select id="cf-service" required>
               <option value="" disabled selected>Select one</option>
               <option>$249 Pilot — Resume + Job Matching</option>
               <option>IT Recruiting / Get Hired</option>
@@ -941,13 +1373,316 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
               <option>Other</option>
             </select>
           </div>
-          <div><label class="flabel">Message</label><textarea placeholder="Tell us about your situation, target role, or project needs..."></textarea></div>
+          <div><label class="flabel">Message</label><textarea id="cf-msg" placeholder="Tell us about your situation, target role, or project needs..."></textarea></div>
           <button class="form-btn" type="submit">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send Message
+            Send via Email App
           </button>
+          <p style="font-size:.72rem;color:var(--muted);margin-top:8px;">📧 This opens your email app (Gmail/Outlook/Mail) addressed directly to info@vhire.tech — your message goes straight to our inbox.</p>
         </form>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:8px;">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">What People Say</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;color:var(--text);margin:0 0 12px;">Real results, real people</h2>
+      <p style="color:var(--muted);font-size:.93rem;max-width:520px;margin:0 auto;">From F-1 students landing their first role to companies finding senior AI engineers — here's what our clients say.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I was on OPT with 3 months left and panicking. VHire Tech found me a STEM-eligible role in 6 weeks. They handled everything — resume, prep, even helped with the offer negotiation.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#0057B8,#00A3A1);">AK</div>
+          <div>
+            <div class="testi-name">Arjun K.</div>
+            <div class="testi-role">Data Engineer · F-1 OPT → Full-time · Chicago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">We needed an AI/ML engineer fast for a client project. VHire Tech sent us 3 strong candidates within 48 hours. Hired one, started within 2 weeks. Incredible speed and quality.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#6c3ec5,#e84393);">SM</div>
+          <div>
+            <div class="testi-name">Sarah M.</div>
+            <div class="testi-role">CTO · SaaS Startup · Austin, TX</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">My H-1B transfer was stuck for weeks. VHire Tech's team knew exactly what documents were missing and connected me to the right employer. Got my new job in 3 weeks.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#1a7f4b,#00A3A1);">RV</div>
+          <div>
+            <div class="testi-name">Rohit V.</div>
+            <div class="testi-role">Cloud Architect · H-1B Transfer · Seattle</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The $249 Pilot was a no-brainer. Within 2 weeks I had 4 interviews lined up. Ended up with 2 offers. Best money I ever spent on my career. 100% recommend.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f0a500,#e84393);">PL</div>
+          <div>
+            <div class="testi-name">Priya L.</div>
+            <div class="testi-role">ML Engineer · STEM OPT · Boston</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">We used VHire Tech to build our entire AI team — 4 engineers in 6 weeks. They understood our tech stack perfectly and only sent us candidates who actually fit. Zero wasted interviews.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#0057B8,#6c3ec5);">DT</div>
+          <div>
+            <div class="testi-name">David T.</div>
+            <div class="testi-role">VP Engineering · FinTech · New York</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I graduated with an IT master's and had no idea where to start. VHire Tech's team treated me like a person, not a resume. Got placed at a great company within my first month.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#00A3A1,#1a7f4b);">NS</div>
+          <div>
+            <div class="testi-name">Neha S.</div>
+            <div class="testi-role">Business Analyst · CPT → OPT · Dallas</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOB BOARD -->
+<section id="jobs">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:32px;">
+      <div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Open Roles</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;color:var(--text);margin:0;">Hot IT Jobs — Hiring Now</h2>
+      </div>
+      <a href="mailto:info@vhire.tech?subject=Job%20Board%20-%20Submit%20My%20Resume" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:11px 22px;border-radius:50px;font-size:.82rem;font-weight:700;text-decoration:none;">📄 Submit Resume →</a>
+    </div>
+    <div class="jobs-filter">
+      <div class="jfilter active" onclick="filterJobs('all',this)">All Roles</div>
+      <div class="jfilter" onclick="filterJobs('ai',this)">🤖 AI / ML</div>
+      <div class="jfilter" onclick="filterJobs('cloud',this)">☁️ Cloud</div>
+      <div class="jfilter" onclick="filterJobs('data',this)">📊 Data</div>
+      <div class="jfilter" onclick="filterJobs('devops',this)">⚙️ DevOps</div>
+      <div class="jfilter" onclick="filterJobs('fullstack',this)">💻 Full Stack</div>
+    </div>
+    <div class="jobs-grid" id="jobsGrid">
+
+      <div class="job-card" data-cat="ai">
+        <div class="job-top"><div class="job-title">AI/ML Engineer — LLM Focus</div><span class="job-new">🔥 NEW</span></div>
+        <div class="job-co">📍 Remote / Austin, TX &nbsp;·&nbsp; Full-time</div>
+        <div class="job-tags"><span class="job-tag">Python</span><span class="job-tag">LangChain</span><span class="job-tag">OpenAI</span><span class="job-tag">RAG</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $130K–$160K · H-1B OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20AI%20ML%20Engineer%20LLM">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="cloud">
+        <div class="job-top"><div class="job-title">Senior Cloud Architect — AWS</div><span class="job-new">🔥 NEW</span></div>
+        <div class="job-co">📍 Remote / New York, NY &nbsp;·&nbsp; Full-time</div>
+        <div class="job-tags"><span class="job-tag">AWS</span><span class="job-tag">Terraform</span><span class="job-tag">Kubernetes</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $145K–$175K · Visa Sponsor</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20Senior%20Cloud%20Architect">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="data">
+        <div class="job-top"><div class="job-title">Data Engineer — Databricks / Spark</div><span class="job-new">HOT</span></div>
+        <div class="job-co">📍 Hybrid / Chicago, IL &nbsp;·&nbsp; Full-time</div>
+        <div class="job-tags"><span class="job-tag">Databricks</span><span class="job-tag">PySpark</span><span class="job-tag">Azure</span><span class="job-tag">dbt</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $115K–$140K · OPT/CPT OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20Data%20Engineer%20Databricks">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="ai">
+        <div class="job-top"><div class="job-title">AI Product Manager</div><span class="job-new">HOT</span></div>
+        <div class="job-co">📍 Remote &nbsp;·&nbsp; Full-time</div>
+        <div class="job-tags"><span class="job-tag">AI/ML</span><span class="job-tag">Agile</span><span class="job-tag">Roadmapping</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $120K–$150K · H-1B Transfer OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20AI%20Product%20Manager">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="devops">
+        <div class="job-top"><div class="job-title">DevOps / Platform Engineer</div><span class="job-new">🔥 NEW</span></div>
+        <div class="job-co">📍 Remote / Seattle, WA &nbsp;·&nbsp; Contract-to-Hire</div>
+        <div class="job-tags"><span class="job-tag">CI/CD</span><span class="job-tag">Docker</span><span class="job-tag">Jenkins</span><span class="job-tag">GCP</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $65–$85/hr · STEM OPT OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20DevOps%20Platform%20Engineer">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="fullstack">
+        <div class="job-top"><div class="job-title">Full Stack Engineer — React + Node</div></div>
+        <div class="job-co">📍 Hybrid / Boston, MA &nbsp;·&nbsp; Full-time</div>
+        <div class="job-tags"><span class="job-tag">React</span><span class="job-tag">Node.js</span><span class="job-tag">PostgreSQL</span><span class="job-tag">AWS</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $105K–$130K · OPT OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20Full%20Stack%20React%20Node">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="data">
+        <div class="job-top"><div class="job-title">Power BI / Analytics Developer</div></div>
+        <div class="job-co">📍 Remote &nbsp;·&nbsp; Contract</div>
+        <div class="job-tags"><span class="job-tag">Power BI</span><span class="job-tag">DAX</span><span class="job-tag">SQL</span><span class="job-tag">Azure Synapse</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $55–$75/hr · CPT/OPT OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20Power%20BI%20Analytics%20Developer">Apply →</a></div>
+      </div>
+
+      <div class="job-card" data-cat="cloud">
+        <div class="job-top"><div class="job-title">Azure Data Platform Engineer</div></div>
+        <div class="job-co">📍 Remote / Dallas, TX &nbsp;·&nbsp; Full-time</div>
+        <div class="job-tags"><span class="job-tag">Azure</span><span class="job-tag">Synapse</span><span class="job-tag">Data Factory</span><span class="job-tag">Python</span></div>
+        <div class="job-footer"><span class="job-loc">💰 $120K–$145K · H-1B OK</span><a class="job-apply" href="mailto:info@vhire.tech?subject=Applying%3A%20Azure%20Data%20Platform%20Engineer">Apply →</a></div>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:.82rem;color:var(--muted);">Don't see your role? <a href="mailto:info@vhire.tech?subject=Open%20Application%20-%20IT%20Role" style="color:var(--blue);font-weight:700;">Send us your resume →</a> We place roles not listed here too.</p>
+  </div>
+</section>
+
+<!-- INSIGHTS SECTION -->
+<section id="insights" style="background:#f7f9fc;padding:80px 5%;position:relative;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:2;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:end;margin-bottom:48px;">
+      <div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--teal);text-transform:uppercase;margin-bottom:10px;">Insights & Resources</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--text);line-height:1.2;margin:0;">Stay ahead with VHire Tech<br>knowledge & news</h2>
+      </div>
+      <div style="text-align:right;">
+        <p style="color:var(--muted);font-size:.93rem;max-width:380px;margin:0 0 16px auto;">Expert articles on AI, recruiting, visa pathways, and the IT hiring market — written for professionals and companies.</p>
+        <a href="mailto:info@vhire.tech?subject=Blog%20Topic%20Suggestion" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:11px 24px;border-radius:50px;font-size:.82rem;font-weight:700;text-decoration:none;letter-spacing:.04em;">SUBSCRIBE + <span style="width:20px;height:20px;border:2px solid rgba(255,255,255,.5);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;">✉</span></a>
+      </div>
+    </div>
+
+    <div class="insights-grid">
+
+      <div class="insight-card">
+        <div class="ic-img" style="background:linear-gradient(135deg,#0057B8 0%,#003d8a 100%);">
+          <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+            <circle cx="40" cy="40" r="22" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <path d="M28 52 L36 36 L44 44 L52 28" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="52" cy="28" r="4" fill="white"/>
+            <line x1="22" y1="58" x2="58" y2="58" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <div class="ic-live-badge">● LIVE NOV 2026</div>
+          <div class="ic-tags"><span>AI</span><span>HIRING</span></div>
+          <h3>83% of IT Hiring Now Uses AI to Screen Resumes</h3>
+          <p>Northeastern University survey of 38,375 US adults: 83% of tech hiring managers use AI screening. Here's how to get past it.</p>
+          <a class="ic-link" href="https://opendatascience.com/week-in-ai-careers-november-8-2026/" target="_blank" rel="noopener">Read More →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-img" style="background:linear-gradient(135deg,#f0a500 0%,#c97800 100%);">
+          <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+            <rect x="18" y="20" width="44" height="40" rx="4" stroke="white" stroke-width="2" fill="rgba(255,255,255,.1)"/>
+            <line x1="18" y1="32" x2="62" y2="32" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <text x="27" y="52" fill="white" font-size="14" font-weight="bold" opacity=".9">73%</text>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <div class="ic-live-badge">● LIVE NOV 2026</div>
+          <div class="ic-tags"><span>AI SKILLS</span><span>JOBS</span></div>
+          <h3>73% of Tech Job Postings Now Require AI Skills</h3>
+          <p>Up from just 15% in Jan 2024 — three-quarters of all tech listings in 2026 demand at least one AI competency. Are you ready?</p>
+          <a class="ic-link" href="https://www.okoone.com/spark/leadership-management/ai-skills-now-appear-in-73-of-tech-job-postings/" target="_blank" rel="noopener">Read More →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-img" style="background:linear-gradient(135deg,#00A3A1 0%,#007a79 100%);">
+          <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+            <rect x="14" y="34" width="14" height="24" rx="2" fill="rgba(255,255,255,.25)" stroke="white" stroke-width="1.5"/>
+            <rect x="33" y="26" width="14" height="32" rx="2" fill="rgba(255,255,255,.35)" stroke="white" stroke-width="1.5"/>
+            <rect x="52" y="16" width="14" height="42" rx="2" fill="rgba(255,255,255,.5)" stroke="white" stroke-width="1.5"/>
+            <polyline points="21,42 40,30 59,22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="59" cy="22" r="3" fill="white"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <div class="ic-live-badge">● LIVE NOV 2026</div>
+          <div class="ic-tags"><span>MARKET</span><span>CLOUD</span></div>
+          <h3>630K Active Tech Job Openings — Up 18.5% Year Over Year</h3>
+          <p>CompTIA Oct 2026: tech unemployment at 2.8% vs 4.1% national. AI-skill roles up 9.8%. Cloud & data dominate demand.</p>
+          <a class="ic-link" href="https://opendatascience.com/week-in-ai-careers-november-8-2026/" target="_blank" rel="noopener">Read More →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-img" style="background:linear-gradient(135deg,#6c3ec5 0%,#4a1fa0 100%);">
+          <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+            <circle cx="38" cy="30" r="12" stroke="white" stroke-width="2" fill="rgba(255,255,255,.15)"/>
+            <path d="M18 62 C18 48 58 48 58 62" stroke="white" stroke-width="2" fill="none"/>
+            <circle cx="60" cy="28" r="7" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,.1)"/>
+            <path d="M50 50 C50 44 68 44 68 50" stroke="white" stroke-width="1.5" fill="none" opacity=".7"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <div class="ic-tags"><span>H-1B</span><span>GUIDE</span></div>
+          <h3>H-1B Transfer — What No One Tells You</h3>
+          <p>Timing, employer risks, pay continuity, and how to protect yourself during an H-1B transfer. Real answers from our recruiters.</p>
+          <a class="ic-link" href="mailto:info@vhire.tech?subject=H-1B%20Transfer%20Question">Ask Our Team →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-img" style="background:linear-gradient(135deg,#e84393 0%,#b5006e 100%);">
+          <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+            <rect x="16" y="20" width="48" height="40" rx="5" stroke="white" stroke-width="2" fill="rgba(255,255,255,.1)"/>
+            <line x1="16" y1="32" x2="64" y2="32" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <circle cx="26" cy="26" r="3" fill="rgba(255,255,255,.7)"/>
+            <circle cx="36" cy="26" r="3" fill="rgba(255,255,255,.4)"/>
+            <line x1="26" y1="44" x2="54" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+            <line x1="26" y1="52" x2="44" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <div class="ic-tags"><span>F-1</span><span>OPT</span></div>
+          <h3>F-1 OPT to Full-Time: Your 2026–27 Roadmap</h3>
+          <p>CPT, OPT, STEM OPT extension, H-1B cap — step-by-step for international students navigating the US IT job market right now.</p>
+          <a class="ic-link" href="mailto:info@vhire.tech?subject=F-1%20OPT%20Question">Ask Our Team →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-img" style="background:linear-gradient(135deg,#1a7f4b 0%,#0f5533 100%);">
+          <svg viewBox="0 0 80 80" fill="none" width="72" height="72">
+            <circle cx="40" cy="40" r="22" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <path d="M40 18 C52 24 56 32 56 40 C56 56 40 62 40 62 C40 62 24 56 24 40 C24 32 28 24 40 18Z" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none"/>
+            <line x1="18" y1="40" x2="62" y2="40" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <circle cx="40" cy="40" r="5" fill="white" opacity=".9"/>
+            <text x="34" y="30" fill="white" font-size="8" opacity=".8">93%</text>
+          </svg>
+        </div>
+        <div class="ic-body">
+          <div class="ic-live-badge">● LIVE NOV 2026</div>
+          <div class="ic-tags"><span>WORKFORCE</span><span>AI</span></div>
+          <h3>93% of US Employers Growing Tech Workforce via AI Adoption</h3>
+          <p>AI fluency is becoming a baseline — not a bonus. Employers are expanding IT teams specifically for AI-integrated roles in 2026–27.</p>
+          <a class="ic-link" href="https://www.webull.com/news/15831559184282624" target="_blank" rel="noopener">Read More →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -960,7 +1695,7 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
         <div class="logo-icon">V</div>
         VHire<span>Tech</span>
       </div>
-      <p>IT Recruiting and AI Consulting firm serving professionals and companies across the USA and India. Helping IT professionals get hired — every month of the year.</p>
+      <p>IT Recruiting and AI Consulting firm serving professionals and companies worldwide. Helping IT professionals get hired — every month of the year.</p>
       <div class="footer-socials">
         <a href="#" title="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1005,10 +1740,689 @@ footer{background:var(--text);color:rgba(255,255,255,.65);padding:52px 5% 26px;}
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 VHire Tech, LLC. All rights reserved. USA + India.</p>
-    <p><a href="mailto:info@vhire.tech">info@vhire.tech</a> &nbsp;·&nbsp; USA: +1 (740) 803-9800 &nbsp;·&nbsp; India: +91 93475 83545</p>
+    <p>&copy; 2026 VHire Tech, LLC. All rights reserved. Worldwide.</p>
+    <p><a href="mailto:info@vhire.tech">info@vhire.tech</a> &nbsp;·&nbsp; <a href="tel:+18595679144">USA: +1 (859) 567-9144</a> &nbsp;·&nbsp; <a href="https://wa.me/917036363878" target="_blank">India (WhatsApp): +91 70363 63878</a></p>
   </div>
 </footer>
+
+<!-- AI GUIDE BOT BUBBLE -->
+<div class="bot-bubble" id="botBubble">
+  <span class="bot-label">Ask VHire Guide 🤖</span>
+  <div class="bot-avatar">
+    <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="13" r="6" fill="white" opacity=".9"/>
+      <path d="M6 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
+      <circle cx="13" cy="12" r="1.5" fill="#0057B8"/>
+      <circle cx="23" cy="12" r="1.5" fill="#0057B8"/>
+      <path d="M15 15.5c.8.8 2.2.8 3 0" stroke="#0057B8" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <span class="bot-ping"></span>
+  </div>
+</div>
+
+<!-- BOT CHAT WINDOW -->
+<div class="bot-window" id="botWindow">
+  <div class="bot-header">
+    <div class="bot-header-avatar">🤖</div>
+    <div class="bot-header-info">
+      <div class="bot-header-name">VHire Guide</div>
+      <div class="bot-header-status">Online — Ask me anything</div>
+    </div>
+    <button class="bot-close" id="botClose">×</button>
+  </div>
+  <div class="bot-messages" id="botMessages"></div>
+  <div class="bot-chips" id="botChips"></div>
+  <div class="bot-input-row">
+    <input class="bot-input" id="botInput" type="text" placeholder="Type a message…" autocomplete="off"/>
+    <button class="bot-send" id="botSendBtn" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ── NAV SCROLL SHADOW ──
+const nav = document.querySelector('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// ── HAMBURGER ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}));
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('section, .stats-band, .pilot-banner, .ticker-wrap');
+revealEls.forEach(el=>el.classList.add('reveal'));
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:0.08});
+revealEls.forEach(el=>observer.observe(el));
+
+// ── ANIMATED STAT COUNTERS ──
+function animateCount(el, end, suffix){
+  let start=0, dur=1800, step=end/dur*16;
+  function tick(){
+    start=Math.min(start+step,end);
+    el.textContent = Math.floor(start)+(suffix||'');
+    if(start<end) requestAnimationFrame(tick);
+  }
+  tick();
+}
+const statObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const nums = e.target.querySelectorAll('.sb-num');
+      const data=[{val:150,suf:'+'},{val:365,suf:''},{val:2,suf:''},{val:100,suf:'%'}];
+      nums.forEach((n,i)=>animateCount(n,data[i].val,data[i].suf));
+      statObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const statsBand = document.querySelector('.stats-band');
+if(statsBand) statObs.observe(statsBand);
+
+// ── SERVICE TABS with PANELS ──
+let activePanel = null;
+document.querySelectorAll('.stab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    const panelId = tab.dataset.panel;
+    const panel = document.getElementById(panelId);
+    // toggle: if already open, close
+    if(activePanel === panel){
+      panel.classList.remove('open');
+      tab.classList.remove('on');
+      activePanel = null;
+      return;
+    }
+    // close any open panel
+    if(activePanel) activePanel.classList.remove('open');
+    document.querySelectorAll('.stab').forEach(t=>t.classList.remove('on'));
+    // open new
+    panel.classList.add('open');
+    tab.classList.add('on');
+    activePanel = panel;
+    // smooth scroll to panel
+    setTimeout(()=>panel.scrollIntoView({behavior:'smooth', block:'start'}),50);
+  });
+});
+
+// ── CONTACT FORM → MAILTO (opens email app → Zoho inbox) ──
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name    = document.getElementById('cf-name').value;
+  const email   = document.getElementById('cf-email').value;
+  const role    = document.getElementById('cf-role').value;
+  const service = document.getElementById('cf-service').value;
+  const msg     = document.getElementById('cf-msg').value;
+  const subject = encodeURIComponent('VHire Tech Inquiry: '+service);
+  const body    = encodeURIComponent(
+    'Hi VHire Tech,\n\nName: '+name+
+    '\nEmail: '+email+
+    '\nCurrent Role: '+(role||'N/A')+
+    '\nInterested in: '+service+
+    '\n\nMessage:\n'+msg+
+    '\n\n---\nSent from vhire.tech contact form'
+  );
+  window.location.href = 'mailto:info@vhire.tech?subject='+subject+'&body='+body;
+});
+
+// ── BOT LOGIC ──
+const botBubble = document.getElementById('botBubble');
+const botWindow = document.getElementById('botWindow');
+const botClose  = document.getElementById('botClose');
+const botMsgs   = document.getElementById('botMessages');
+const botChips  = document.getElementById('botChips');
+const botInput  = document.getElementById('botInput');
+const botSendBtn= document.getElementById('botSendBtn');
+
+let botState = 'greeting';
+let userVisa = '';
+let botStarted = false;
+
+const BOT_FLOWS = {
+  greeting:{
+    msg:"👋 Hi! I'm VHire Guide — here to help you get hired or find the right service.\n\nWhat best describes you?",
+    chips:["🎓 F-1 Student","🏢 H-1B Professional","💼 General / Other"]
+  },
+  f1_intro:{
+    msg:"Great! As an F-1 student, your work authorization is key. What's your current status?",
+    chips:["📋 CPT (Curricular Practical Training)","🎯 OPT (Optional Practical Training)","⭐ STEM OPT Extension"]
+  },
+  f1_cpt:{
+    msg:"CPT is great for getting real work experience while in school! A few things to know:\n\n✅ CPT-eligible roles must relate to your degree\n✅ We work with employers who sponsor CPT\n✅ Resume needs to highlight relevant coursework\n\nWhen do you graduate?",
+    chips:["2025 / 2026","2027 / 2028","Already Graduated"]
+  },
+  f1_opt:{
+    msg:"OPT gives you 12 months to work in your field — act fast!\n\n✅ We prioritize your applications while OPT clock is ticking\n✅ Specializing in F-1 OPT placements: IT, AI, Data\n✅ Manual applications — no auto-spray\n\nWhat year did / do you graduate?",
+    chips:["2024 / 2025","2026","2023 or Earlier"]
+  },
+  f1_stem:{
+    msg:"STEM OPT Extension = 36 months total — a huge advantage!\n\n✅ We know exactly which employers file I-983\n✅ Strong demand for AI, Data, Cloud STEM roles\n✅ Time is on your side — let us maximize it\n\nWhat's your graduation year?",
+    chips:["2024 / 2025","2026","2023 or Earlier"]
+  },
+  h1b_intro:{
+    msg:"H-1B professionals are in high demand right now! Tell me more:",
+    chips:["🔄 Already on H-1B, need new role","📅 H-1B approved, joining soon","🎯 Employer-sponsored, need help"]
+  },
+  h1b_active:{
+    msg:"Switching roles on H-1B? We handle this all the time.\n\n✅ H-1B transfer support via sponsor employers\n✅ Roles that file H-1B for the right candidate\n✅ No cap-subject hassle for existing H-1B holders\n\nWhat's your target role?",
+    chips:["AI / ML Engineer","Software Engineer","Data / Cloud Role","Other IT Role"]
+  },
+  h1b_new:{
+    msg:"Exciting! Ready to start your US IT career?\n\n✅ We know employers who actively sponsor H-1B\n✅ Resume optimized for employer-sponsored roles\n✅ Manual applications to sponsoring companies only\n\nWhat's your graduation year?",
+    chips:["2024 / 2025","2022 / 2023","Earlier"]
+  },
+  general:{
+    msg:"Welcome! VHire Tech helps IT professionals get hired year-round.\n\nWhat are you looking for?",
+    chips:["🚀 Get Hired (Job Seeker)","🤖 AI Consulting / Project","🏢 Hire IT Talent","💡 Resume Help Only"]
+  },
+  interest:{
+    msg:"Perfect! What's your area of expertise or interest?",
+    chips:["🤖 AI / ML Engineering","💻 Software Development","📊 Data Science / Analytics","☁️ Cloud / DevOps","🎯 Other IT Role"]
+  },
+  recommendation:{
+    msg:"",
+    chips:["📞 Call USA: +1 (859) 567-9144","💬 WhatsApp India: +91 70363 63878","📧 Email info@vhire.tech","🚀 Start $249 Pilot"]
+  }
+};
+
+function botAddMsg(text, type){
+  const div = document.createElement('div');
+  div.className = 'bot-msg '+(type||'bot');
+  div.textContent = text;
+  botMsgs.appendChild(div);
+  botMsgs.scrollTop = botMsgs.scrollHeight;
+}
+
+function botTyping(cb, delay=900){
+  const dot = document.createElement('div');
+  dot.className = 'bot-typing';
+  dot.innerHTML='<span></span><span></span><span></span>';
+  botMsgs.appendChild(dot);
+  botMsgs.scrollTop = botMsgs.scrollHeight;
+  setTimeout(()=>{dot.remove();cb();},delay);
+}
+
+function botShowChips(chips){
+  botChips.innerHTML='';
+  chips.forEach(c=>{
+    const btn=document.createElement('button');
+    btn.className='bot-chip';
+    btn.textContent=c;
+    btn.addEventListener('click',()=>botHandleChip(c));
+    botChips.appendChild(btn);
+  });
+}
+
+function botHandleChip(choice){
+  botChips.innerHTML='';
+  botAddMsg(choice,'user');
+  const c = choice.toLowerCase();
+
+  if(botState==='greeting'){
+    if(c.includes('f-1')){userVisa='f1'; botState='f1_intro';}
+    else if(c.includes('h-1')){userVisa='h1'; botState='h1b_intro';}
+    else{botState='general';}
+    botTyping(()=>{
+      const flow = BOT_FLOWS[botState];
+      botAddMsg(flow.msg,'bot');
+      botShowChips(flow.chips);
+    });
+  }
+  else if(botState==='f1_intro'){
+    if(c.includes('cpt')) botState='f1_cpt';
+    else if(c.includes('stem')) botState='f1_stem';
+    else botState='f1_opt';
+    botTyping(()=>{
+      botAddMsg(BOT_FLOWS[botState].msg,'bot');
+      botShowChips(BOT_FLOWS[botState].chips);
+      if(botState!=='recommendation') setTimeout(()=>botGoToInterest(),2500);
+    });
+  }
+  else if(botState==='h1b_intro'){
+    if(c.includes('already')||c.includes('active')||c.includes('transfer')) botState='h1b_active';
+    else botState='h1b_new';
+    botTyping(()=>{
+      botAddMsg(BOT_FLOWS[botState].msg,'bot');
+      botShowChips(BOT_FLOWS[botState].chips);
+      setTimeout(()=>botGoToInterest(),2500);
+    });
+  }
+  else if(botState==='general'){
+    if(c.includes('get hired')||c.includes('job seeker')) botState='interest';
+    else if(c.includes('ai consulting')||c.includes('project')) {botGoToContact("Great choice! Our AI consulting team handles everything from LLM development to full AI product builds."); return;}
+    else if(c.includes('hire it talent')) {botGoToContact("We provide staff augmentation and direct hire for IT roles worldwide."); return;}
+    else botState='interest';
+    botTyping(()=>{
+      botAddMsg(BOT_FLOWS['interest'].msg,'bot');
+      botShowChips(BOT_FLOWS['interest'].chips);
+    });
+  }
+  else if(botState==='interest'){
+    botGoToRecommend(choice);
+  }
+  else if(botState==='recommendation'||botState==='f1_cpt'||botState==='f1_opt'||botState==='f1_stem'||botState==='h1b_active'||botState==='h1b_new'){
+    if(c.includes('call usa')||c.includes('+1')){window.location.href='tel:+18595679144';}
+    else if(c.includes('whatsapp')||c.includes('india')){window.open('https://wa.me/917036363878','_blank');}
+    else if(c.includes('email')){window.location.href='mailto:info@vhire.tech';}
+    else if(c.includes('pilot')){document.getElementById('pilot').scrollIntoView({behavior:'smooth'});botWindow.classList.remove('open');}
+    else botGoToRecommend(choice);
+  }
+  else {
+    botGoToRecommend(choice);
+  }
+}
+
+function botGoToInterest(){
+  botState='interest';
+  botAddMsg(BOT_FLOWS['interest'].msg,'bot');
+  botShowChips(BOT_FLOWS['interest'].chips);
+}
+
+function botGoToContact(intro){
+  botTyping(()=>{
+    botAddMsg(intro,'bot');
+    setTimeout(()=>{
+      botState='recommendation';
+      botAddMsg("How would you like to connect with us?","bot");
+      botShowChips(BOT_FLOWS['recommendation'].chips);
+    },600);
+  });
+}
+
+function botGoToRecommend(interest){
+  const c = interest.toLowerCase();
+  let msg = "Great! Based on your profile:\n\n";
+  if(c.includes('ai')||c.includes('ml')) msg+="🤖 We actively place AI/ML Engineers. Our $249 pilot includes resume optimization for AI roles + manual applications to companies actively hiring.\n\nReady to get started?";
+  else if(c.includes('software')||c.includes('develop')) msg+="💻 Strong demand for software engineers right now. We'll enhance your resume and manually apply to full-stack, front-end, and back-end roles.\n\nShall we start with the $249 pilot?";
+  else if(c.includes('data')) msg+="📊 Data roles are booming! We specialize in placing data scientists, data engineers, and analytics professionals.\n\nOur $249 pilot is perfect for you.";
+  else if(c.includes('cloud')||c.includes('devops')) msg+="☁️ Cloud and DevOps talent is in high demand. We know employers across AWS, Azure, and GCP stacks.\n\nLet's get your profile in front of them.";
+  else msg+="✅ We handle all IT roles — resume + matching + manual applications. The $249 pilot is a great first step.\n\nReach out and let's talk!";
+  botState='recommendation';
+  botTyping(()=>{
+    botAddMsg(msg,'bot');
+    botShowChips(BOT_FLOWS['recommendation'].chips);
+  });
+}
+
+function botHandleText(text){
+  if(!text.trim()) return;
+  botAddMsg(text,'user');
+  botInput.value='';
+  const t = text.toLowerCase();
+  botTyping(()=>{
+    if(t.includes('price')||t.includes('cost')||t.includes('249')||t.includes('pilot')){
+      botAddMsg("Our Pilot Program is $249 — a one-time fee that includes:\n✅ Professional Resume Rewrite\n✅ ATS Optimization\n✅ Curated Job Matching (10–15 roles)\n✅ Human-reviewed manual applications\n✅ Status updates\n\nNo hidden fees. No auto-apply bots.", 'bot');
+      botShowChips(["🚀 Start $249 Pilot","📧 Email info@vhire.tech","💬 WhatsApp India"]);
+    }
+    else if(t.includes('f-1')||t.includes('f1')||t.includes('opt')||t.includes('cpt')||t.includes('stem')){
+      botAddMsg("We specialize in F-1 OPT/CPT/STEM OPT placements! We know the timelines and urgency. Tell me your status (CPT, OPT, or STEM OPT) and we'll guide you.", 'bot');
+      botShowChips(["📋 CPT","🎯 OPT","⭐ STEM OPT"]);
+      botState='f1_intro';
+    }
+    else if(t.includes('h1b')||t.includes('h-1b')||t.includes('h1')){
+      botAddMsg("H-1B professionals — we're on it! We know employers who sponsor and transfer H-1B. Let's find you the right fit.", 'bot');
+      botShowChips(["🔄 Transfer H-1B","📅 New H-1B joining","🎯 Employer-sponsored"]);
+      botState='h1b_intro';
+    }
+    else if(t.includes('email')||t.includes('contact')||t.includes('reach')){
+      botAddMsg("You can reach us:\n📧 info@vhire.tech\n📞 USA: +1 (859) 567-9144\n💬 India WhatsApp: +91 70363 63878\n\nWe respond within 1 business day!", 'bot');
+      botShowChips(["📞 Call USA","💬 WhatsApp India","📧 Email Us"]);
+    }
+    else if(t.includes('resume')){
+      botAddMsg("Our resume service is built by real recruiters — not templates. We rewrite your resume for the specific roles you're targeting, ATS-optimize it, and align keywords for maximum visibility.\n\nIt's included in the $249 pilot!", 'bot');
+      botShowChips(["🚀 Start Pilot — $249","📞 Call to Learn More"]);
+    }
+    else{
+      botAddMsg("Thanks for your message! For the best answer, our team at info@vhire.tech or WhatsApp (+91 70363 63878) can help you directly. Want me to point you to the right service?", 'bot');
+      botShowChips(["🚀 $249 Pilot","📞 Call USA","💬 WhatsApp India"]);
+    }
+  });
+}
+
+// Open/close bot
+botBubble.addEventListener('click',()=>{
+  botWindow.classList.toggle('open');
+  if(botWindow.classList.contains('open') && !botStarted){
+    botStarted=true;
+    botTyping(()=>{
+      botAddMsg(BOT_FLOWS['greeting'].msg,'bot');
+      botShowChips(BOT_FLOWS['greeting'].chips);
+    },800);
+  }
+});
+botClose.addEventListener('click',()=>botWindow.classList.remove('open'));
+
+botSendBtn.addEventListener('click',()=>botHandleText(botInput.value));
+botInput.addEventListener('keydown',e=>{if(e.key==='Enter')botHandleText(botInput.value);});
+</script>
+
+<!-- WHATSAPP FLOAT -->
+<a id="waFloat" href="https://wa.me/917036363878?text=Hi%20VHire%20Tech!%20I%20found%20you%20on%20vhire.tech%20and%20need%20help." target="_blank" rel="noopener" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<!-- DARK MODE TOGGLE -->
+<button id="dmToggle" onclick="toggleDark()" title="Toggle dark mode" aria-label="Toggle dark mode">
+  <span class="dm-icon" id="dmIcon">🌙</span>
+  <span class="dm-label" id="dmLabel">DARK</span>
+</button>
+
+<script>
+// DARK MODE
+function toggleDark(){
+  const isDark = document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('dmIcon').textContent  = isDark ? '🌙' : '☀️';
+  document.getElementById('dmLabel').textContent = isDark ? 'DARK' : 'LIGHT';
+  try{ localStorage.setItem('vhire-theme', isDark ? 'light' : 'dark'); }catch(e){}
+}
+// restore saved theme
+try{
+  const saved = localStorage.getItem('vhire-theme');
+  if(saved === 'dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('dmIcon').textContent  = '☀️';
+    document.getElementById('dmLabel').textContent = 'LIGHT';
+  }
+}catch(e){}
+
+// JOB FILTER
+function filterJobs(cat, btn){
+  document.querySelectorAll('.jfilter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.job-card').forEach(card=>{
+    const show = cat==='all' || card.dataset.cat === cat;
+    card.style.display = show ? 'flex' : 'none';
+    if(show){ card.style.animation = 'none'; card.offsetHeight; card.style.animation = ''; }
+  });
+}
+</script>
+
+<!-- CUTE CAT MASCOT -->
+<style>
+#kitty{
+  position:fixed;z-index:9999;
+  width:90px;cursor:pointer;pointer-events:auto;
+  transition:left .9s cubic-bezier(.34,1.56,.64,1), right .9s cubic-bezier(.34,1.56,.64,1), top .9s cubic-bezier(.34,1.56,.64,1), bottom .9s cubic-bezier(.34,1.56,.64,1), transform .4s cubic-bezier(.34,1.56,.64,1);
+  filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));
+  user-select:none;
+}
+@keyframes kittyFloat{
+  0%,100%{transform:translateY(0) rotate(-2deg)}
+  50%{transform:translateY(-10px) rotate(2deg)}
+}
+@keyframes kittyWag{
+  0%,100%{transform-origin:50% 90%; transform:rotate(-8deg)}
+  50%{transform-origin:50% 90%; transform:rotate(14deg)}
+}
+@keyframes kittyBlink{
+  0%,90%,100%{transform:scaleY(1)}
+  95%{transform:scaleY(0.08)}
+}
+#kitty.floating svg{animation:kittyFloat 2.4s ease-in-out infinite;}
+#kitty-tail{transform-origin:30px 10px; animation:kittyWag 1.2s ease-in-out infinite;}
+.kitty-eye{animation:kittyBlink 3.5s ease-in-out infinite;}
+#kitty-eye-r{animation:kittyBlink 3.5s ease-in-out infinite; animation-delay:.08s;}
+
+#kitty-bubble{
+  position:fixed;z-index:9998;
+  background:#fff;border:2.5px solid #FFB7D5;border-radius:14px;
+  padding:9px 14px;font-size:.74rem;font-weight:700;color:#333;
+  box-shadow:0 4px 20px rgba(255,100,160,.22);pointer-events:none;
+  transition:opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1);
+  opacity:0;transform:scale(.7);max-width:180px;line-height:1.5;
+  white-space:normal;
+}
+#kitty-bubble.show{opacity:1;transform:scale(1);}
+</style>
+
+<div id="kitty" class="floating">
+<svg viewBox="0 0 90 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- tail -->
+  <g id="kitty-tail">
+    <path d="M28 88 Q14 78 18 65 Q22 54 30 60" stroke="#FFCCE8" stroke-width="7" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- body -->
+  <ellipse cx="45" cy="72" rx="26" ry="22" fill="#FFF0F8"/>
+  <ellipse cx="45" cy="72" rx="22" ry="18" fill="#FFE4F2"/>
+  <!-- tummy -->
+  <ellipse cx="45" cy="76" rx="13" ry="11" fill="#fff" opacity=".7"/>
+  <!-- paws -->
+  <ellipse cx="28" cy="90" rx="8" ry="5" fill="#FFD6EC"/>
+  <ellipse cx="62" cy="90" rx="8" ry="5" fill="#FFD6EC"/>
+  <ellipse cx="29" cy="89" rx="5" ry="3.5" fill="#FFC0E0"/>
+  <ellipse cx="61" cy="89" rx="5" ry="3.5" fill="#FFC0E0"/>
+  <!-- tiny toe beans -->
+  <ellipse cx="27" cy="90" rx="1.5" ry="1" fill="#FFB0D8"/>
+  <ellipse cx="30" cy="91" rx="1.5" ry="1" fill="#FFB0D8"/>
+  <ellipse cx="59" cy="90" rx="1.5" ry="1" fill="#FFB0D8"/>
+  <ellipse cx="62" cy="91" rx="1.5" ry="1" fill="#FFB0D8"/>
+  <!-- arms / tiny wave arm right -->
+  <path d="M68 68 Q76 60 74 54" stroke="#FFD6EC" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <ellipse cx="74" cy="53" rx="5" ry="4" fill="#FFC0E0"/>
+  <!-- arm left resting -->
+  <path d="M22 68 Q14 64 16 58" stroke="#FFD6EC" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <ellipse cx="16" cy="57" rx="5" ry="4" fill="#FFC0E0"/>
+  <!-- head -->
+  <circle cx="45" cy="40" r="28" fill="#FFF0F8"/>
+  <!-- ear left -->
+  <path d="M20 20 L14 4 L30 14 Z" fill="#FFD6EC"/>
+  <path d="M21 18 L17 8 L28 15 Z" fill="#FFB7D5"/>
+  <!-- ear right -->
+  <path d="M70 20 L76 4 L60 14 Z" fill="#FFD6EC"/>
+  <path d="M69 18 L73 8 L62 15 Z" fill="#FFB7D5"/>
+  <!-- head blush -->
+  <ellipse cx="28" cy="46" rx="7" ry="4" fill="#FFB7D5" opacity=".45"/>
+  <ellipse cx="62" cy="46" rx="7" ry="4" fill="#FFB7D5" opacity=".45"/>
+  <!-- eye whites left -->
+  <ellipse cx="35" cy="38" rx="8" ry="9" fill="white"/>
+  <!-- eye whites right -->
+  <ellipse cx="55" cy="38" rx="8" ry="9" fill="white"/>
+  <!-- pupils (anime big) -->
+  <g class="kitty-eye" style="transform-origin:35px 38px">
+    <ellipse cx="35" cy="39" rx="5.5" ry="6.5" fill="#2d1a4a"/>
+    <ellipse cx="35" cy="38" rx="4" ry="5" fill="#6b4fa8"/>
+    <circle cx="33" cy="35" r="2" fill="white"/>
+    <circle cx="37" cy="40" r="1" fill="white" opacity=".6"/>
+  </g>
+  <g id="kitty-eye-r" style="transform-origin:55px 38px">
+    <ellipse cx="55" cy="39" rx="5.5" ry="6.5" fill="#2d1a4a"/>
+    <ellipse cx="55" cy="38" rx="4" ry="5" fill="#6b4fa8"/>
+    <circle cx="53" cy="35" r="2" fill="white"/>
+    <circle cx="57" cy="40" r="1" fill="white" opacity=".6"/>
+  </g>
+  <!-- nose -->
+  <path d="M43 46 L45 44 L47 46 Q45 49 43 46Z" fill="#FFB7D5"/>
+  <!-- mouth -->
+  <path d="M40 49 Q45 54 50 49" stroke="#FFB7D5" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <!-- whiskers left -->
+  <line x1="10" y1="44" x2="30" y2="46" stroke="#ccc" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+  <line x1="10" y1="48" x2="30" y2="48" stroke="#ccc" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+  <!-- whiskers right -->
+  <line x1="80" y1="44" x2="60" y2="46" stroke="#ccc" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+  <line x1="80" y1="48" x2="60" y2="48" stroke="#ccc" stroke-width="1" stroke-linecap="round" opacity=".7"/>
+  <!-- tiny VHire badge on tummy -->
+  <ellipse cx="45" cy="74" rx="10" ry="7" fill="#0057B8" opacity=".15"/>
+  <text x="40" y="77" fill="#0057B8" font-size="7" font-weight="900" font-family="Manrope,sans-serif" opacity=".7">VHire</text>
+</svg>
+</div>
+<div id="kitty-bubble"></div>
+
+<script>
+(function(){
+  const kitty = document.getElementById('kitty');
+  const bubble = document.getElementById('kitty-bubble');
+  let bubbleTimer = null;
+  let lastSection = '';
+  let moveTimer = null;
+  let currentSpot = -1;
+  let isHidden = true;
+
+  /* ── SPOTS: 8 positions around the viewport edges ── */
+  // Each spot: anchor corner + offset, flip transform, peek transform
+  // peek = cat is half-hidden behind the edge, peeking in
+  // show = fully visible
+  function getSpots(){
+    const W = window.innerWidth, H = window.innerHeight;
+    const S = 90; // cat size
+    return [
+      // 0 bottom-right corner (start)
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; bottom:80px;right:16px; transform:scaleX(1);`; } },
+      // 1 bottom-left corner
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; bottom:80px;left:16px; transform:scaleX(-1);`; } },
+      // 2 top-right corner
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; top:80px;right:16px; transform:scaleX(1) rotate(180deg);`; } },
+      // 3 top-left corner
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; top:80px;left:16px; transform:scaleX(-1) rotate(180deg);`; } },
+      // 4 right edge middle — peeks from right
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; top:45%;right:-30px; transform:scaleX(1);`; } },
+      // 5 left edge middle — peeks from left
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; top:45%;left:-30px; transform:scaleX(-1);`; } },
+      // 6 bottom centre — peeks from bottom
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; bottom:-20px;left:calc(50% - 45px); transform:none;`; } },
+      // 7 top centre — hangs from top (upside down)
+      { set:()=>{ kitty.style.cssText=`position:fixed;z-index:9999;width:90px;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 6px 18px rgba(0,87,184,.25));user-select:none; top:-10px;left:calc(50% - 45px); transform:rotate(180deg);`; } },
+    ];
+  }
+
+  function showBubble(msg){
+    bubble.textContent = msg;
+    bubble.classList.add('show');
+    // position bubble near kitty
+    const r = kitty.getBoundingClientRect();
+    const bx = r.left < window.innerWidth/2 ? (r.right + 8) : 'auto';
+    const brx = r.left >= window.innerWidth/2 ? (window.innerWidth - r.left + 8) : 'auto';
+    const by = Math.min(Math.max(r.top, 60), window.innerHeight - 120);
+    bubble.style.left   = bx !== 'auto' ? bx+'px' : 'auto';
+    bubble.style.right  = brx !== 'auto' ? brx+'px' : 'auto';
+    bubble.style.top    = by+'px';
+    bubble.style.bottom = 'auto';
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(()=>bubble.classList.remove('show'), 3200);
+  }
+
+  const spotMsgs = [
+    '🐱 Mew! Looking for a job~?',
+    '✨ AI skills = dream career. Purrr!',
+    '🚀 Check out the $249 Pilot!',
+    '🧠 73% of tech jobs need AI skills!',
+    '💙 I believe in you, nya~!',
+    '👀 Psst — over here!',
+    '☁️ Cloud + AI = your future!',
+    '📰 Fresh Nov 2026 hiring news below!',
+  ];
+
+  const jumpAnims = [
+    'translateY(-28px) scale(1.15) rotate(-10deg)',
+    'translateY(-28px) scale(1.15) rotate(10deg)',
+    'scale(1.2) rotate(-15deg)',
+    'scale(1.2) rotate(15deg)',
+  ];
+
+  function goToSpot(idx, msg){
+    const spots = getSpots();
+    if(idx === currentSpot) idx = (idx + 1 + Math.floor(Math.random()*6)) % spots.length;
+    currentSpot = idx;
+
+    // squish out (shrink before jump)
+    kitty.style.transition = 'transform .18s ease';
+    kitty.style.transform  = (kitty.style.transform||'') + ' scale(.7)';
+
+    setTimeout(()=>{
+      spots[idx].set();
+      // kitty.style.transition is now reset by set() — re-add smooth
+      kitty.style.transition = 'left .85s cubic-bezier(.34,1.56,.64,1), right .85s cubic-bezier(.34,1.56,.64,1), top .85s cubic-bezier(.34,1.56,.64,1), bottom .85s cubic-bezier(.34,1.56,.64,1), transform .4s cubic-bezier(.34,1.56,.64,1)';
+      // land bounce
+      const tf = kitty.style.transform;
+      setTimeout(()=>{
+        kitty.style.transform = (tf||'') + ' ' + jumpAnims[Math.floor(Math.random()*jumpAnims.length)];
+        setTimeout(()=>{ kitty.style.transform = tf||''; }, 400);
+        if(msg) setTimeout(()=>showBubble(msg), 220);
+      }, 100);
+    }, 180);
+  }
+
+  // Auto roam every 5-8 seconds
+  function scheduleMove(){
+    clearTimeout(moveTimer);
+    const delay = 5000 + Math.random()*3000;
+    moveTimer = setTimeout(()=>{
+      const idx = Math.floor(Math.random() * getSpots().length);
+      const msg = spotMsgs[Math.floor(Math.random()*spotMsgs.length)];
+      goToSpot(idx, Math.random() > .5 ? msg : null);
+      scheduleMove();
+    }, delay);
+  }
+
+  // Scroll: jump + greet section
+  const sectionMsgs = [
+    {id:'hero',     msg:'🐱 Nyaa~ Welcome to VHire Tech!'},
+    {id:'services', msg:'✨ Purrfect AI & cloud services!'},
+    {id:'pilot',    msg:'🐾 $249 Pilot — tiny risk, big results!'},
+    {id:'about',    msg:'💙 Real humans behind every hire~'},
+    {id:'insights', msg:'📰 Fresh Nov 2026 news — mew!'},
+    {id:'contact',  msg:'📬 Say hello — we reply fast!'},
+  ];
+  window.addEventListener('scroll',()=>{
+    const vp = window.innerHeight;
+    for(const s of sectionMsgs){
+      const el = document.getElementById(s.id);
+      if(!el) continue;
+      const r = el.getBoundingClientRect();
+      if(r.top < vp*.55 && r.bottom > vp*.1){
+        if(lastSection !== s.id){
+          lastSection = s.id;
+          // jump to random spot and greet
+          goToSpot(Math.floor(Math.random()*getSpots().length), s.msg);
+          clearTimeout(moveTimer);
+          scheduleMove();
+        }
+        break;
+      }
+    }
+  },{passive:true});
+
+  // Click — spin + quip
+  kitty.addEventListener('click',()=>{
+    const quips=['🐱 Mew! Click me again~','✨ You found me! Purrr!','🚀 Ready to get hired?','💙 I\'ll guide you, nya~!','🌟 VHire is the best~ meow!'];
+    showBubble(quips[Math.floor(Math.random()*quips.length)]);
+    kitty.style.transform = (kitty.style.transform||'') + ' rotate(360deg) scale(1.3)';
+    setTimeout(()=>{
+      const spots = getSpots();
+      spots[currentSpot < 0 ? 0 : currentSpot].set();
+    },600);
+    clearTimeout(moveTimer);
+    scheduleMove();
+  });
+
+  // Tab return — peek from edge
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden){
+      goToSpot(4,'👀 You came back! Mew~');
+      scheduleMove();
+    }
+  });
+
+  // Start: slide in from right corner
+  setTimeout(()=>{
+    goToSpot(0,'🐱 Hi! I\'m Vee~ Watch me jump!');
+    scheduleMove();
+  }, 1400);
+
+})();
+</script>
 
 </body>
 </html>
